@@ -1,0 +1,19 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body {
+  background: rgb(19, 18, 18);
+  color: white;
+}
+
+:root {
+  --cx-g-color-background: #f4f4f4;
+  --cx-g-color-primary: #44d62c;
+  --cx-color-primary: #44d62c;
+  --razer-color-body-text: #999;
+  --cx-font-weight-bold: 400;
+  --cx-color-light: #222;
+  --cx-color-background: #222;
+  font-size: 16px;
+}
