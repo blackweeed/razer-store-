@@ -9,9 +9,9 @@ function Navbar() {
   const border = "border-b border-[#555] w-full text-center py-2";
 
   return (
-    <nav className="flex justify-between items-center px-4 bg-black">
+    <nav className="flex justify-between items-center px-4 bg-black border-b border-[#44D62C]">
       <span>menu</span>
-      <img src={logo} alt="logo" className="w-[70px] h-[70px] object-contain" />
+      <img src={logo} alt="logo" className="w-[70px] h-[55px] object-contain" />
       <span onClick={() => setToggle((prev) => !prev)} className="relative">
         <FiShoppingCart size={20} />
         <div className="absolute -top-2 -right-2 w-3.5 h-3.5 bg-[color:var(--cx-color-primary)] rounded-full flex justify-center items-center">
