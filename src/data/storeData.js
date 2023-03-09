@@ -10,3 +10,5 @@ const data = [
       "https://assets3.razerzone.com/nEsJXUYAls6UuUkdmeD1pO2KJxA=/500x500/https%3A%2F%2Fhybrismediaprod.blob.core.windows.net%2Fsys-master-phoenix-images-container%2Fhe1%2Fh43%2F9451887427614%2Fnaga-v2-pro-500x500.png",
   },
 ];
+
+export default { data };

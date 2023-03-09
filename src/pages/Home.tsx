@@ -2,7 +2,7 @@ import ProductView from "../components/ProductView";
 
 function Home() {
   return (
-    <section className="px-4">
+    <section className="px-6">
       <div className="mb-6">
         <h1 className="text-[color:var(--cx-color-primary)] text-[2.5rem] font-semibold">
           GAMING MICE
