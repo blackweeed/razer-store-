@@ -17,3 +17,36 @@ body {
   --cx-color-background: #222;
   font-size: 16px;
 }
+
+.container {
+  margin-top: 10px;
+  margin-bottom: 100px;
+  display: flex;
+  overflow: auto;
+  /* gap: 2rem; */
+  flex: none;
+  scroll-snap-type: x proximity;
+  width: 100%;
+  flex-flow: row nowrap;
+}
+.container::-webkit-scrollbar {
+  display: none;
+}
+.container > div {
+  scroll-snap-align: center;
+  flex: none;
+  background-color: #222;
+  font-size: 20px;
+  width: 82%;
+  margin-left: 2rem;
+}
+.container > div:last-child {
+  margin-right: 2rem;
+}
+
+.image {
+  background-color: #111;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}

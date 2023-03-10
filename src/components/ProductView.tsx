@@ -1,8 +1,6 @@
-import Product from "./Product";
-
 function ProductView() {
   return (
-    <div className="mb-0">
+    <div className=" px-6">
       <div className="flex flex-col">
         <h2 className="leading-tight text-[1.8rem] font-semibold	">
           THE RAZER DEATHADDER RANGE
@@ -15,14 +13,6 @@ function ProductView() {
           View All{" "}
           <span className="text-[color:var(--cx-color-primary)]">{`>`}</span>
         </p>
-      </div>
-      <div className="flex items-center w-full h-full overflow-x-scroll scroll whitespace-nowrap scroll-smooth">
-        <Product />
-        <Product />
-        <Product />
-        <Product />
-        <Product />
-        <Product />
       </div>
     </div>
   );
