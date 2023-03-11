@@ -2,15 +2,18 @@ import Navbar from "./components/Navbar";
 import Home from "./pages/Home";
 import Product from "./pages/Product";
 import SeeAll from "./pages/SeeAll";
+import { Routes, Route } from "react-router-dom";
 
 function App() {
   return (
-    <div className="App">
+    <>
       <Navbar />
-      {/* <Home /> */}
-      {/* <Product /> */}
-      <SeeAll />
-    </div>
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/all" element={<SeeAll />} />
+        <Route path={`/:id`} element={<Product />} />
+      </Routes>
+    </>
   );
 }
 

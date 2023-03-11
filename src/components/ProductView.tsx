@@ -1,3 +1,5 @@
+import { Link } from "react-router-dom";
+
 function ProductView() {
   return (
     <div className=" px-6">
@@ -9,10 +11,10 @@ function ProductView() {
           Competitive gaming mice with an award-winning legacy of iconic
           ergonomics
         </p>
-        <p className="place-self-end">
+        <Link to="/all" className="place-self-end">
           View All{" "}
           <span className="text-[color:var(--cx-color-primary)]">{`>`}</span>
-        </p>
+        </Link>
       </div>
     </div>
   );

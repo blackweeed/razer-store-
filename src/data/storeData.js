@@ -22,9 +22,15 @@ const data = [
   {
     id: 1,
     image:
-      "https://assets3.razerzone.com/nEsJXUYAls6UuUkdmeD1pO2KJxA=/500x500/https%3A%2F%2Fhybrismediaprod.blob.core.windows.net%2Fsys-master-phoenix-images-container%2Fhe1%2Fh43%2F9451887427614%2Fnaga-v2-pro-500x500.png",
+      "https://assets3.razerzone.com/vjg5qK3y0VjX6fDNGV7PGut0r0c=/300x300/https%3A%2F%2Fhybrismediaprod.blob.core.windows.net%2Fsys-master-phoenix-images-container%2Fhc9%2Fh51%2F9449963946014%2Fdeathadder-v3-pro-black-v2-500x500.png",
     name: "Razer DeathAdder V3 Pro",
+    color: "- Black",
     description: "Ultra-lightweight Wireless Ergonomic Esports Mouse",
+    descriptions: [
+      "Ultra-lightweight Design",
+      "Refined Ergonomic Form",
+      "Razer™ Focus Pro 30K Optical Sensor",
+    ],
     price: 149.99,
     new: false,
   },
@@ -33,7 +39,13 @@ const data = [
     image:
       "https://assets3.razerzone.com/h_0WJ_aE8TR_WJUbTO7MlovJWxg=/500x500/https%3A%2F%2Fhybrismediaprod.blob.core.windows.net%2Fsys-master-phoenix-images-container%2Fh72%2Fh51%2F9449963913246%2Fdeathadder-v3-pro-white-v2-500x500.png",
     name: "Razer DeathAdder V3 Pro",
+    color: "- White",
     description: "Ultra-lightweight Wireless Ergonomic Esports Mouse",
+    descriptions: [
+      "Ultra-lightweight Design",
+      "Refined Ergonomic Form",
+      "Razer™ Focus Pro 30K Optical Sensor",
+    ],
     price: 149.99,
     new: true,
   },
