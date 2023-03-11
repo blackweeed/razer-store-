@@ -50,3 +50,28 @@ body {
   height: 100%;
   object-fit: contain;
 }
+select {
+  align-items: center;
+  background: 0 0;
+  border: 1px solid #999;
+  border-radius: 0.25rem;
+  color: #999;
+  display: flex;
+  font-family: Roboto, Helvetica Neue, Arial, Noto Sans, sans-serif,
+    Apple Color Emoji, Segoe UI Emoji, Segoe UI Symbol, Noto Color Emoji;
+  font-size: 0.875rem;
+  min-height: 3rem;
+  min-width: var(14.0625rem);
+  padding: 0.875rem 0.75rem;
+}
+
+.shadow {
+  box-shadow: 0 0 0 1px #44d62c;
+}
+
+.legend {
+  transform: translatey(-55%);
+  width: max-content;
+  background: black;
+  padding: 0 0.2em;
+}

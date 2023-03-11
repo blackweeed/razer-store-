@@ -9,7 +9,7 @@ function Navbar() {
   const border = "border-b border-[#555] w-full text-center py-2";
 
   return (
-    <nav className="flex justify-between items-center px-4 bg-black border-b border-[#44D62C] mb-4">
+    <nav className="flex justify-between items-center px-4 bg-black border-b border-[#44D62C] ">
       <span>RAZER</span>
       <img
         src={logo}
