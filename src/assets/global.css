@@ -76,9 +76,6 @@ select {
   padding: 0 0.2em;
 }
 
-.test:hover .elo::before {
-  background-image: url("https://www.razer.com/assets/images/icons/cart_icon_hover.svg");
-}
 .elo {
   display: inline-flex;
   gap: 16px;
@@ -90,10 +87,16 @@ select {
   content: " ";
   display: inline-block;
   background-size: 26px auto;
+  /* background-size: 18px auto; */
   height: 26px;
   width: 26px;
-  background-image: url("https://www.razer.com/assets/images/icons/cart_icon.svg");
 }
-.elo::before:hover {
-  background-image: url("https://www.razer.com/assets/images/icons/cart_icon_hover.svg");
+.elo1::before {
+  background-position: 50%;
+  background-repeat: no-repeat;
+  content: " ";
+  display: inline-block;
+  background-size: 18px auto;
+  height: 26px;
+  width: 26px;
 }

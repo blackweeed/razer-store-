@@ -18,45 +18,44 @@ function Cart({ toggle }: Props) {
         Your Cart is empty.
       </span>
       <span
-        className={`${border} flex items-center gap-5 cursor-pointer hover:text-[#44D62C] test`}
+        className={`${border} flex items-center gap-5 cursor-pointer hover:text-[#44D62C] test:hover group`}
       >
         {" "}
-        <p className="elo">Cart</p>
-      </span>
-      <span className={`${border} flex items-center gap-[calc(1rem+8px)] `}>
-        {" "}
-        <img
-          className="w-[18px] h-[18px] ml-1"
-          src="https://www.razer.com/assets/images/icons/orders_icon.svg"
-          alt=""
-        />{" "}
-        Orders
-      </span>
-      <span className={`${border} flex items-center gap-[calc(1rem+8px)] `}>
-        <img
-          className="w-[18px] h-[18px] ml-1"
-          src="https://www.razer.com/assets/images/icons/account-icon.svg"
-          alt=""
-        />{" "}
-        Account
-      </span>
-      <span className={`${border} flex items-center gap-[calc(1rem+8px)] `}>
-        <img
-          className="w-[18px] h-[18px] ml-1"
-          src="https://www.razer.com/assets/images/icons/RazerStore_Rewards_outlined_icon.svg"
-          alt=""
-        />{" "}
-        RazerStore Rewards
+        <p className="elo before:bg-[url('../assets/cart_icon.svg')] before:group-hover:bg-[url('../assets/cart_icon-hover.svg')]">
+          Cart
+        </p>
       </span>
       <span
-        className={`${border} border-none flex items-center gap-[calc(1rem+8px)] `}
+        className={`${border} flex items-center gap-5 cursor-pointer hover:text-[#44D62C] group`}
       >
-        <img
-          className="w-[18px] h-[18px] ml-1"
-          src="https://www.razer.com/assets/images/icons/signin_icon.svg"
-          alt=""
-        />{" "}
-        Log In
+        {" "}
+        <p className="elo elo1 before:bg-[url('../assets/orders_icon.svg')] before:group-hover:bg-[url('../assets/orders_icon_hover.svg')] ">
+          Orders
+        </p>
+      </span>
+      <span
+        className={`${border} flex items-center gap-5 cursor-pointer hover:text-[#44D62C] group`}
+      >
+        {" "}
+        <p className="elo elo1 before:bg-[url('../assets/account_icon.svg')] before:group-hover:bg-[url('../assets/account_icon-hover.svg')]">
+          Account
+        </p>
+      </span>
+      <span
+        className={`${border} flex items-center gap-5 cursor-pointer hover:text-[#44D62C] group`}
+      >
+        {" "}
+        <p className="elo elo1 before:bg-[url('../assets/RazerStore_Rewards_icon.svg')] before:group-hover:bg-[url('../assets/RazerStore_Rewards_icon_hover.svg')]">
+          RazerStore Rewards
+        </p>
+      </span>
+      <span
+        className={`${border} flex items-center gap-5 cursor-pointer hover:text-[#44D62C] group`}
+      >
+        {" "}
+        <p className="elo elo1 before:bg-[url('../assets/signin_icon.svg')] before:group-hover:bg-[url('../assets/signin_icon_hover.svg')]">
+          Log In
+        </p>
       </span>
     </div>
   );
