@@ -3,7 +3,8 @@ const data = [
     id: 0,
     image:
       "https://assets3.razerzone.com/U8sc9SfBIuXLjW4MVR4FAHUB2F0=/500x500/https%3A%2F%2Fhybrismediaprod.blob.core.windows.net%2Fsys-master-phoenix-images-container%2Fh08%2Fh67%2F9481236971550%2Fda-v3-pro-faker-500X500.png",
-    name: "Razer DeathAdder V3 Pro Faker Edition",
+    name: "Razer DeathAdder V3 Pro ",
+    color: "Faker Edition",
     description: "Ultra-lightweight Wireless Ergonomic Esports Mouse",
     descriptions: [
       "63g Ultra-lightweight Design",
@@ -24,7 +25,7 @@ const data = [
     image:
       "https://assets3.razerzone.com/vjg5qK3y0VjX6fDNGV7PGut0r0c=/300x300/https%3A%2F%2Fhybrismediaprod.blob.core.windows.net%2Fsys-master-phoenix-images-container%2Fhc9%2Fh51%2F9449963946014%2Fdeathadder-v3-pro-black-v2-500x500.png",
     name: "Razer DeathAdder V3 Pro",
-    color: "- Black",
+    color: "Black",
     description: "Ultra-lightweight Wireless Ergonomic Esports Mouse",
     descriptions: [
       "Ultra-lightweight Design",
@@ -33,13 +34,18 @@ const data = [
     ],
     price: 149.99,
     new: false,
+    images: [
+      "https://assets3.razerzone.com/n9n0rpVB8hcHF0hUBjK6BT5NJCI=/1500x1000/https%3A%2F%2Fhybrismediaprod.blob.core.windows.net%2Fsys-master-phoenix-images-container%2Fh13%2Fhef%2F9430193307678%2Fdeathadder-v3-pro-black-1500x1000-3.jpg",
+      "https://assets3.razerzone.com/R6CS79CYHmiv1IQANxS-aMJYgcs=/1500x1000/https%3A%2F%2Fhybrismediaprod.blob.core.windows.net%2Fsys-master-phoenix-images-container%2Fhe9%2Fhea%2F9430193471518%2Fdeathadder-v3-pro-black-1500x1000-4.jpg",
+      "https://assets3.razerzone.com/ry2sw9SxQeNAk3tH3LNLWuaICmY=/1500x1000/https%3A%2F%2Fhybrismediaprod.blob.core.windows.net%2Fsys-master-phoenix-images-container%2Fhab%2Fheb%2F9430193405982%2Fdeathadder-v3-pro-black-1500x1000-2.jpg",
+    ],
   },
   {
-    id: 1,
+    id: 2,
     image:
       "https://assets3.razerzone.com/h_0WJ_aE8TR_WJUbTO7MlovJWxg=/500x500/https%3A%2F%2Fhybrismediaprod.blob.core.windows.net%2Fsys-master-phoenix-images-container%2Fh72%2Fh51%2F9449963913246%2Fdeathadder-v3-pro-white-v2-500x500.png",
     name: "Razer DeathAdder V3 Pro",
-    color: "- White",
+    color: "White",
     description: "Ultra-lightweight Wireless Ergonomic Esports Mouse",
     descriptions: [
       "Ultra-lightweight Design",
@@ -48,6 +54,11 @@ const data = [
     ],
     price: 149.99,
     new: true,
+    images: [
+      "https://assets3.razerzone.com/a7pR1BEjszKcOizC63D74L5by20=/1500x1000/https%3A%2F%2Fhybrismediaprod.blob.core.windows.net%2Fsys-master-phoenix-images-container%2Fh54%2Fheb%2F9430193438750%2Fdeathadder-v3-pro-white-1500x1000-1.jpg",
+      "https://assets3.razerzone.com/lKWDmrnGj99SHxnKQSrtrftIjFg=/1500x1000/https%3A%2F%2Fhybrismediaprod.blob.core.windows.net%2Fsys-master-phoenix-images-container%2Fh79%2Fhf5%2F9430193143838%2Fdeathadder-v3-pro-white-1500x1000-3.jpg",
+      "https://assets3.razerzone.com/bUdR8cwzJImH2VQYR2pAT9Qnuxc=/1500x1000/https%3A%2F%2Fhybrismediaprod.blob.core.windows.net%2Fsys-master-phoenix-images-container%2Fhba%2Fhf1%2F9430193274910%2Fdeathadder-v3-pro-white-1500x1000-4.jpg",
+    ],
   },
 ];
 

@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { GoChevronDown } from "react-icons/go";
 
-function Selection() {
+function Selection({ color }) {
   const [active, setActive] = useState(false);
 
   return (
@@ -14,7 +14,7 @@ function Selection() {
     >
       <p className="legend text-[0.8rem]">Color / Design</p>
       <div className="text-white absolute inset-0 flex justify-between items-center px-5 text-[0.9rem]">
-        <p>White</p>
+        <p>{color}</p>
         <GoChevronDown
           size={25}
           fill={"#44d62c"}

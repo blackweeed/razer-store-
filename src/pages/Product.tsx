@@ -1,12 +1,15 @@
 import { useState } from "react";
 import data from "../data/storeData.js";
 import { BsChevronLeft, BsChevronRight } from "react-icons/bs";
+import { useParams } from "react-router-dom";
 import Selection from "../components/Selection.js";
 import AddToCart from "../components/AddToCart.js";
 
-const item = data.data[0];
-
 function Product() {
+  const { id } = useParams();
+
+  const item = data.data[id];
+
   const [slideIndex, setSlideIndex] = useState(0);
 
   let arrayLength = item.images.length;
@@ -39,18 +42,18 @@ function Product() {
       </div>
       <div className="px-[1rem] mt-8">
         <h2 className="text-[1.3125rem] text-[color:var(--cx-color-primary)]">
-          {item.name} - Black
+          {item.name} {item.color && `- ${item.color}`}
         </h2>
         <h3 className="text-[.875rem] max-w-[90%] mb-2">{item.description}</h3>
         <p className="text-[1.3125rem]">US${item.price}</p>
         <ul className="text-[#888] list-disc ml-5 text-[.875rem] mt-[2rem] mb-10">
-          {item.descriptions?.map((des) => (
-            <li>{des}</li>
+          {item.descriptions?.map((des, i) => (
+            <li key={i}>{des}</li>
           ))}
         </ul>
       </div>
       <div className="flex flex-col gap-6 px-4">
-        <Selection />
+        <Selection color={item.color} />
         <AddToCart />
       </div>
     </div>
