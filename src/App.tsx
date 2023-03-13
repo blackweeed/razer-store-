@@ -5,6 +5,7 @@ import SeeAll from "./pages/SeeAll";
 import { Routes, Route } from "react-router-dom";
 import Cart from "./pages/Cart";
 import { ShoppingCartProvider } from "./context/ShoppingCartContext";
+import Login from "./pages/Login";
 
 function App() {
   return (
@@ -15,6 +16,7 @@ function App() {
           <Route path="/" element={<Home />} />
           <Route path="/cart" element={<Cart />} />
           <Route path="/all" element={<SeeAll />} />
+          <Route path="/login" element={<Login />} />
           <Route path={`/:id`} element={<Product />} />
           <Route path={`/all/:id`} element={<Product />} />
         </Routes>

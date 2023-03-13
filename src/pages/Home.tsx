@@ -14,7 +14,7 @@ function Home() {
         </p>
       </div>
       <ProductView />
-      <div className="container ">
+      <div className="container">
         {data.data.map((item) => (
           <div key={item.id}>
             <Link to={`${item.id}`}>
