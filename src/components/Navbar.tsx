@@ -4,9 +4,11 @@ import { FiShoppingCart } from "react-icons/fi";
 import Cart from "./Cart";
 import { Link } from "react-router-dom";
 import cartIcon from "../assets/cart_icon.svg";
+import { useShoppingCart } from "../context/ShoppingCartContext";
 
 function Navbar() {
   const [toggle, setToggle] = useState(false);
+  const { cartQuantity } = useShoppingCart();
 
   return (
     <nav className="flex justify-between items-center px-4 py-4 bg-black border-b border-[#44D62C] relative">
@@ -26,7 +28,7 @@ function Navbar() {
           className="w-6 h-6 cursor-pointer "
         />
         <div className="absolute -top-2 -right-2 w-3.5 h-3.5 bg-[color:var(--cx-color-primary)] rounded-full flex justify-center items-center">
-          <p className="text-black text-[10px] font-medium">3</p>
+          <p className="text-black text-[10px] font-medium">{cartQuantity}</p>
         </div>
         <Cart toggle={toggle} />
       </span>

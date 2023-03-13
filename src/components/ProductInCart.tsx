@@ -1,10 +1,19 @@
 import { useState } from "react";
-import data from "../data/storeData";
 import { FiChevronDown } from "react-icons/fi";
+import data from "../data/data.json";
 
-function ProductInCart({ id, quantity }) {
+type CartItemProps = {
+  id: number;
+  quantity: number;
+};
+
+function ProductInCart({ id, quantity }: CartItemProps) {
   const [toggle, setToggle] = useState(false);
-  const item = data.data[id];
+  console.log(id);
+
+  const item = data[id];
+  // const item = data.find((i) => i.id === id);
+  // if (item == null) return null;
 
   return (
     <div className="px-4 py-4">
@@ -27,9 +36,11 @@ function ProductInCart({ id, quantity }) {
                 className={`transition duration-300 ${toggle && "rotate-180"} `}
               />
             </p>
-            <ul className={`${toggle ? "block" : "hidden"}`}>
+            <ul className={` ${toggle ? "block" : "hidden"} `}>
               {item.descriptions.map((des) => (
-                <li className="text-[#888] text-sm">- {des}</li>
+                <li key={des} className="text-[#888] text-sm">
+                  - {des}
+                </li>
               ))}
             </ul>
           </div>
@@ -51,7 +62,7 @@ function ProductInCart({ id, quantity }) {
             alt=""
           />
         </div>
-        <h3 className="text-[17px]">US${item.price}</h3>
+        <h3 className="text-[17px]">US${item.price * quantity}</h3>
       </div>
     </div>
   );
