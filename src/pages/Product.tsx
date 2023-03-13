@@ -3,7 +3,8 @@ import data from "../data/storeData.js";
 import { BsChevronLeft, BsChevronRight } from "react-icons/bs";
 import { useParams } from "react-router-dom";
 import Selection from "../components/Selection.js";
-import AddToCart from "../components/AddToCart.js";
+import style from "../assets/style";
+import { useShoppingCart } from "../context/ShoppingCartContext.js";
 
 function Product() {
   const { id } = useParams();
@@ -20,6 +21,13 @@ function Product() {
   const next = () => {
     setSlideIndex((prev) => prev + 1);
   };
+
+  const {
+    getItemQuantity,
+    increaseCartQuantity,
+    decreaseCartQuantity,
+    removeFromCart,
+  } = useShoppingCart();
 
   return (
     <div className="mb-20">
@@ -54,7 +62,12 @@ function Product() {
       </div>
       <div className="flex flex-col gap-6 px-4">
         <Selection color={item.color} />
-        <AddToCart />
+        <button
+          className={`${style.button}`}
+          onClick={() => increaseCartQuantity(id)}
+        >
+          ADD TO CART
+        </button>
       </div>
     </div>
   );

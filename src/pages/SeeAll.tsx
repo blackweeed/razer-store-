@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
-import AddToCart from "../components/AddToCart.js";
 import data from "../data/storeData.js";
+import style from "../assets/style";
 
 function SeeAll() {
   return (
@@ -33,7 +33,7 @@ function SeeAll() {
                 View details {">"}
               </span>
               <span className="text-[0.875rem] mb-4">US${item.price}</span>
-              <AddToCart />
+              <button className={`${style.button}`}>ADD TO CART</button>
             </div>
           </Link>
         ))}

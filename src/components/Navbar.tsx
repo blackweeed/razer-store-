@@ -9,13 +9,13 @@ function Navbar() {
   const [toggle, setToggle] = useState(false);
 
   return (
-    <nav className="flex justify-between items-center px-4 bg-black border-b border-[#44D62C] ">
+    <nav className="flex justify-between items-center px-4 py-4 bg-black border-b border-[#44D62C] relative">
       <span>RAZER</span>
-      <Link to="/">
+      <Link to="/" className="absolute inset-0 w-full flex justify-center ">
         <img
           src={logo}
           alt="logo"
-          className="w-[70px] h-[55px] object-contain "
+          className="w-[70px] h-[55px] object-contain  "
         />
       </Link>
       <span className="relative">

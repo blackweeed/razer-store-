@@ -1,7 +1,5 @@
 const border = "border-b border-[#555] w-full text-left py-2.5 ";
-import cart from "../assets/cart_icon.svg";
-import cartHover from "../assets/cart_icon-hover.svg";
-import { useState } from "react";
+import { Link } from "react-router-dom";
 
 type Props = {
   toggle: boolean;
@@ -21,9 +19,12 @@ function Cart({ toggle }: Props) {
         className={`${border} flex items-center gap-5 cursor-pointer hover:text-[#44D62C] test:hover group`}
       >
         {" "}
-        <p className="elo before:bg-[url('../assets/cart_icon.svg')] before:group-hover:bg-[url('../assets/cart_icon-hover.svg')]">
+        <Link
+          to="/cart"
+          className="elo before:bg-[url('../assets/cart_icon.svg')] before:group-hover:bg-[url('../assets/cart_icon-hover.svg')]"
+        >
           Cart
-        </p>
+        </Link>
       </span>
       <span
         className={`${border} flex items-center gap-5 cursor-pointer hover:text-[#44D62C] group`}
@@ -50,7 +51,7 @@ function Cart({ toggle }: Props) {
         </p>
       </span>
       <span
-        className={`${border} flex items-center gap-5 cursor-pointer hover:text-[#44D62C] group`}
+        className={`${border} border-none flex items-center gap-5 cursor-pointer hover:text-[#44D62C] group`}
       >
         {" "}
         <p className="elo elo1 before:bg-[url('../assets/signin_icon.svg')] before:group-hover:bg-[url('../assets/signin_icon_hover.svg')]">

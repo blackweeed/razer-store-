@@ -3,17 +3,22 @@ import Home from "./pages/Home";
 import Product from "./pages/Product";
 import SeeAll from "./pages/SeeAll";
 import { Routes, Route } from "react-router-dom";
+import Cart from "./pages/Cart";
+import { ShoppingCartProvider } from "./context/ShoppingCartContext";
 
 function App() {
   return (
     <>
-      <Navbar />
-      <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="/all" element={<SeeAll />} />
-        <Route path={`/:id`} element={<Product />} />
-        <Route path={`/all/:id`} element={<Product />} />
-      </Routes>
+      <ShoppingCartProvider>
+        <Navbar />
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/cart" element={<Cart />} />
+          <Route path="/all" element={<SeeAll />} />
+          <Route path={`/:id`} element={<Product />} />
+          <Route path={`/all/:id`} element={<Product />} />
+        </Routes>
+      </ShoppingCartProvider>
     </>
   );
 }
