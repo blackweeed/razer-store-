@@ -64,7 +64,7 @@ function Product() {
         <Selection color={item.color} />
         <button
           className={`${style.button}`}
-          onClick={() => increaseCartQuantity(id)}
+          onClick={() => increaseCartQuantity(Number(id))}
         >
           ADD TO CART
         </button>

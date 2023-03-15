@@ -8,9 +8,6 @@ function Cart() {
 
   return (
     <section>
-      {cartItems.map((item, i) => (
-        <p key={i}>{item.id}</p>
-      ))}
       <div className="flex items-start justify-between bg-[#222] px-4 py-4">
         <h2 className="text-[17px] leading-5 font-semibold max-w-[150px]">
           Your cart total is US$
@@ -21,6 +18,7 @@ function Cart() {
         </h2>
         <button className={`${style.button}`}>CHECKOUT</button>
       </div>
+
       {cartItems.map((item) => (
         <ProductInCart key={item.id} {...item} />
       ))}

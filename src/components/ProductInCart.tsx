@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { FiChevronDown } from "react-icons/fi";
+import { useShoppingCart } from "../context/ShoppingCartContext";
 import data from "../data/data.json";
 
 type CartItemProps = {
@@ -9,7 +10,8 @@ type CartItemProps = {
 
 function ProductInCart({ id, quantity }: CartItemProps) {
   const [toggle, setToggle] = useState(false);
-  console.log(id);
+  const { increaseCartQuantity, decreaseCartQuantity, removeFromCart } =
+    useShoppingCart();
 
   const item = data[id];
   // const item = data.find((i) => i.id === id);
@@ -28,7 +30,7 @@ function ProductInCart({ id, quantity }: CartItemProps) {
           <div>
             <p
               onClick={() => setToggle((prev) => !prev)}
-              className="text-[color:var(--cx-color-primary)] text-sm mt-2 flex gap-1 hover:underline"
+              className="text-[color:var(--cx-color-primary)] text-sm mt-2 flex gap-1 hover:underline cursor-pointer"
             >
               Show details{" "}
               <FiChevronDown
@@ -49,15 +51,22 @@ function ProductInCart({ id, quantity }: CartItemProps) {
       <div className="flex justify-between mt-3">
         <div className="flex gap-2 items-center justify-between ">
           <img
-            className="opacity-80"
-            src="https://www.razer.com/assets/images/icons/icon-minus-circle.svg"
+            onClick={() => decreaseCartQuantity(id)}
+            className="opacity-80 hover:opacity-100 cursor-pointer"
+            src={
+              quantity === 1
+                ? "https://www.razer.com/assets/images/icons/icon-delete.svg"
+                : "https://www.razer.com/assets/images/icons/icon-minus-circle.svg"
+            }
+            // src="https://www.razer.com/assets/images/icons/icon-minus-circle.svg"
             alt=""
           />
           <span className="w-14 h-12 border border-[#888] rounded-[4px] flex items-center justify-center">
             {quantity}
           </span>
           <img
-            className="opacity-80"
+            onClick={() => increaseCartQuantity(id)}
+            className="opacity-80 hover:opacity-100 cursor-pointer"
             src="https://www.razer.com/assets/images/icons/icon-add-circle.svg"
             alt=""
           />
