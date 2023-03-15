@@ -1,17 +1,16 @@
 import { useState } from "react";
-import data from "../data/storeData.js";
+import data from "../data/data.json";
 import { BsChevronLeft, BsChevronRight } from "react-icons/bs";
 import { useParams } from "react-router-dom";
 import Selection from "../components/Selection.js";
-import style from "../assets/style";
+import style from "../assets/style.js";
 import { useShoppingCart } from "../context/ShoppingCartContext.js";
 
 function Product() {
   const { id } = useParams();
-
-  const item = data.data[id];
-
+  const item = data[Number(id)];
   const [slideIndex, setSlideIndex] = useState(0);
+  const [selected, setSelected] = useState<string>("");
 
   let arrayLength = item.images.length;
 
@@ -55,7 +54,7 @@ function Product() {
         <h3 className="text-[.875rem] max-w-[90%] mb-2">{item.description}</h3>
         <p className="text-[1.3125rem]">US${item.price}</p>
         <ul className="text-[#888] list-disc ml-5 text-[.875rem] mt-[2rem] mb-10">
-          {item.descriptions?.map((des, i) => (
+          {item.descriptions?.map((des: string, i: number) => (
             <li key={i}>{des}</li>
           ))}
         </ul>

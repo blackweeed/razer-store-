@@ -1,12 +1,17 @@
+import { KeyboardEventHandler } from "react";
+
 type Props = {
   text: string;
   type: string;
+  handleChange: KeyboardEventHandler;
 };
 
-function FloatingLabel({ text, type }: Props) {
+function FloatingLabel({ text, type, handleChange }: Props) {
   return (
     <div className="relative">
       <input
+        autoComplete="off"
+        onKeyDown={handleChange}
         type={type}
         id={text}
         className="block px-2.5 pb-2.5 pt-4 w-full text-lg text-white bg-transparent rounded-sm border border-[#888] appearance-none focus:outline-none focus:ring-0 focus:border-[color:var(--cx-color-primary)] peer"

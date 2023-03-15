@@ -1,8 +1,18 @@
 import { useState } from "react";
 import { GoChevronDown } from "react-icons/go";
+import data from "../data/data.json";
 
-function Selection({ color }) {
+type Props = {
+  color: string;
+  selected: string;
+  setSelected: (item: string) => void;
+};
+
+function Selection({ color, setSelected, selected }: Props) {
   const [active, setActive] = useState(false);
+  const [toggle, setToggle] = useState(false);
+
+  const colors = data.map((item) => item.color);
 
   return (
     <div
@@ -18,8 +28,22 @@ function Selection({ color }) {
         <GoChevronDown
           size={25}
           fill={"#44d62c"}
-          className={active && "rotate-180"}
+          className={`${active && "rotate-180"}`}
         />
+        <div className="absolute bg-white text-black py-2 px-2.5 rounded-md">
+          {colors.map((item) => (
+            <p
+              onClick={() => {
+                if (item !== selected) {
+                  setSelected(item);
+                }
+              }}
+              className="pl-4 pt-2 pb-1 cursor-pointer bg-white"
+            >
+              {item}
+            </p>
+          ))}
+        </div>
       </div>
     </div>
   );
