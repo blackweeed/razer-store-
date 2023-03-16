@@ -18,7 +18,11 @@ function SeeAll() {
       </div>
       <div className="flex flex-col gap-8 pt-8 pb-20 px-[1.2rem]">
         {data.map((item) => (
-          <Link key={item.id} to={`/${item.id}`} className="flex flex-col">
+          <Link
+            key={item.id}
+            to={`/${item.name}/${item.id}`}
+            className="flex flex-col"
+          >
             <div className="relative">
               <div className="bg-[#111] w-full h-full flex justify-center items-center">
                 <img className="w-[80%]" src={item.image} alt="" />

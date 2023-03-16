@@ -130,5 +130,62 @@
       "https://assets3.razerzone.com/nTVVX9KSe8dBXL8By2MCjTKQJAk=/1500x1000/https%3A%2F%2Fhybrismediaprod.blob.core.windows.net%2Fsys-master-phoenix-images-container%2Fha3%2Fh22%2F9451886510110%2F221110-naga-v2-hyperspeed-1500x1000-1.jpg",
       "https://assets3.razerzone.com/os3514tsTWO62peCgCYJTWvQLwU=/1500x1000/https%3A%2F%2Fhybrismediaprod.blob.core.windows.net%2Fsys-master-phoenix-images-container%2Fh5d%2Fh25%2F9451886477342%2F221110-naga-v2-hyperspeed-1500x1000-5.jpg"
     ]
+  },
+  {
+    "id": 7,
+    "image": "https://assets3.razerzone.com/vKv8iRMbNh2Cd8jzIXBQDNq3VVI=/500x500/https%3A%2F%2Fhybrismediaprod.blob.core.windows.net%2Fsys-master-phoenix-images-container%2Fh17%2Fh75%2F9434905706526%2Fbasilisk-v3-pro-500x500.png",
+    "name": "Razer Basilisk V3 Pro",
+    "color": "Black",
+    "description": "Customizable Wireless Gaming Mouse with Razer HyperScroll Tilt Wheel",
+    "descriptions": [
+      "Razer™ HyperScroll Tilt Wheel",
+      "13-Zone Chroma Lighting with Full Underglow",
+      "Iconic Ergonomic Form with 10+1 Programmable Buttons"
+    ],
+    "price": 159.99,
+    "new": false,
+    "images": [
+      "https://assets3.razerzone.com/HdtP_HRV6xK-I2mlkkNMUZb8OTc=/1500x1000/https%3A%2F%2Fhybrismediaprod.blob.core.windows.net%2Fsys-master-phoenix-images-container%2Fh03%2Fh61%2F9434918912030%2F220823-basilisk-v3-pro-1500x1000-3.jpg",
+      "https://assets3.razerzone.com/bVlOhPiKr9hbqwz8X28c4r57Pho=/1500x1000/https%3A%2F%2Fhybrismediaprod.blob.core.windows.net%2Fsys-master-phoenix-images-container%2Fhbe%2Fh63%2F9434918879262%2F220823-basilisk-v3-pro-1500x1000-4.jpg",
+      "https://assets3.razerzone.com/CBPjFkeMie1z_s3eiouSXbqNZCA=/1500x1000/https%3A%2F%2Fhybrismediaprod.blob.core.windows.net%2Fsys-master-phoenix-images-container%2Fheb%2Fh05%2F9434919862302%2F220823-basilisk-v3-pro-1500x1000-1.jpg"
+    ]
+  },
+  {
+    "id": 8,
+    "image": "https://assets3.razerzone.com/a3Ybm8jEE5HfEXz-3W70ZqDehUs=/500x500/https%3A%2F%2Fhybrismediaprod.blob.core.windows.net%2Fsys-master-phoenix-images-container%2Fh22%2Fh08%2F9447199080478%2Fbasilisk-v3-pro-white-500x500.png",
+    "name": "Razer Basilisk V3 Pro",
+    "color": "White",
+    "description": "Customizable Wireless Gaming Mouse with Razer HyperScroll Tilt Wheel",
+    "descriptions": [
+      "Razer™ HyperScroll Tilt Wheel",
+      "13-Zone Chroma Lighting with Full Underglow",
+      "Iconic Ergonomic Form with 10+1 Programmable Buttons"
+    ],
+    "price": 159.99,
+    "new": false,
+    "images": [
+      "https://assets3.razerzone.com/44O6McFXZ2BebT0jtPdPWaiyLec=/1500x1000/https%3A%2F%2Fhybrismediaprod.blob.core.windows.net%2Fsys-master-phoenix-images-container%2Fhee%2Fh4b%2F9446067077150%2F221015-basilisk-v3-pro-white-1500x1000-1.jpg",
+      "https://assets3.razerzone.com/KxHkBDMKOYjGh-L6w9Xggz47OmA=/1500x1000/https%3A%2F%2Fhybrismediaprod.blob.core.windows.net%2Fsys-master-phoenix-images-container%2Fh48%2Fh49%2F9446067109918%2F221015-basilisk-v3-pro-white-1500x1000-2.jpg",
+      "https://assets3.razerzone.com/ux-nydjy5R61SuFydgOupduT1Pc=/1500x1000/https%3A%2F%2Fhybrismediaprod.blob.core.windows.net%2Fsys-master-phoenix-images-container%2Fh9d%2Fh4c%2F9446067011614%2F221015-basilisk-v3-pro-white-1500x1000-5.jpg"
+    ]
+  },
+  {
+    "id": 9,
+    "image": "https://assets3.razerzone.com/WpxwI5DhUOxvpML8jp_kA17xVA0=/500x500/https%3A%2F%2Fhybrismediaprod.blob.core.windows.net%2Fsys-master-phoenix-images-container%2Fh2b%2Fhc4%2F9081103220766%2FRazer-Naga-Left-Handed-Edition-500x500.png",
+    "name": "Razer Naga Left-Handed Edition",
+    "description": "Ergonomic MMO Gaming Mouse for Left-Handed Users",
+    "descriptions": [
+      "True Left-Handed Ergonomic Design",
+      "19+1 Programmable Buttons",
+      "Razer™ Focus+ Optical Sensor"
+    ],
+    "price": 99.99,
+    "new": false,
+    "exclusive": true,
+    "images": [
+      "https://assets3.razerzone.com/vr-18Wd6_A4aQX7g6ofqKj_vLzo=/1500x1000/https%3A%2F%2Fhybrismediaprod.blob.core.windows.net%2Fsys-master-phoenix-images-container%2Fh3b%2Fh72%2F9081450430494%2FRazer-Naga-Left-Handed-Edition-Gallery2.jpg",
+      "https://assets3.razerzone.com/UHmGwm2hwyAZNytOlUoygk1VS0I=/1500x1000/https%3A%2F%2Fhybrismediaprod.blob.core.windows.net%2Fsys-master-phoenix-images-container%2Fh27%2Fh6b%2F9081450659870%2FRazer-Naga-Left-Handed-Edition-Gallery3.jpg",
+      "https://assets3.razerzone.com/eYjVnOIhezgNUoP5Ji_c36rd98s=/1500x1000/https%3A%2F%2Fhybrismediaprod.blob.core.windows.net%2Fsys-master-phoenix-images-container%2Fhff%2Fh63%2F9081450889246%2FRazer-Naga-Left-Handed-Edition-Gallery0.jpg"
+    ]
   }
 ]
