@@ -5,7 +5,7 @@ import style from "../assets/style.js";
 
 type Props = {
   toggle: boolean;
-  setToggle: () => void;
+  setToggle: (toggle: boolean) => void;
 };
 
 function Cart({ toggle, setToggle }: Props) {

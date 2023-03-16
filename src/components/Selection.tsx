@@ -8,9 +8,10 @@ type Props = {
   setSelected: (item: string) => void;
 };
 
-function Selection({ color, setSelected, selected }: Props) {
+function Selection({ color }: Props) {
   const [active, setActive] = useState(false);
-  const [toggle, setToggle] = useState(false);
+  const [selected, setSelected] = useState<string>("");
+  console.log(selected);
 
   const colors = data.map((item) => item.color);
 
@@ -30,7 +31,11 @@ function Selection({ color, setSelected, selected }: Props) {
           fill={"#44d62c"}
           className={`${active && "rotate-180"}`}
         />
-        <div className="absolute bg-white text-black py-2 px-2.5 rounded-md">
+        <div
+          className={`absolute -top-28 left-0 bg-white text-black w-full h-fit rounded-lg ${
+            active && "hidden"
+          }`}
+        >
           {colors.map((item) => (
             <p
               onClick={() => {
