@@ -1,19 +1,19 @@
 import { useState } from "react";
 import { GoChevronDown } from "react-icons/go";
+import { useNavigate } from "react-router-dom";
 import data from "../data/data.json";
 
 type Props = {
-  color: string;
-  selected: string;
-  setSelected: (item: string) => void;
+  color?: string;
+  name: string;
 };
 
-function Selection({ color }: Props) {
+function Selection({ color, name }: Props) {
   const [active, setActive] = useState(false);
-  const [selected, setSelected] = useState<string>("");
-  console.log(selected);
+  const filteredColors = data.filter((item) => item.name === name);
+  const colors = filteredColors.map((item) => item.color);
 
-  const colors = data.map((item) => item.color);
+  const navigate = useNavigate();
 
   return (
     <div
@@ -32,20 +32,29 @@ function Selection({ color }: Props) {
           className={`${active && "rotate-180"}`}
         />
         <div
-          className={`absolute -top-28 left-0 bg-white text-black w-full h-fit rounded-lg ${
-            active && "hidden"
+          className={`absolute -top-28 left-0 bg-[#111] text-[#888] w-full h-fit rounded-lg border border-[#666]  ${
+            active ? "" : "hidden"
           }`}
         >
-          {colors.map((item) => (
+          {colors.map((item, index) => (
             <p
-              onClick={() => {
-                if (item !== selected) {
-                  setSelected(item);
-                }
+              key={index}
+              onClick={(e) => {
+                navigate(
+                  `/${
+                    data.find((x) => x.color === e.currentTarget.textContent)
+                      ?.name
+                  }/${
+                    data.find((x) => x.color === e.currentTarget.textContent)
+                      ?.id
+                  }`
+                );
               }}
-              className="pl-4 pt-2 pb-1 cursor-pointer bg-white"
+              className={`pl-4 pt-2 pb-1 cursor-pointer hover:bg-[black] rounded-lg ${
+                item === color ? "text-white" : null
+              }`}
             >
-              {item}
+              <span>{item}</span>
             </p>
           ))}
         </div>

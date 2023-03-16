@@ -1,13 +1,24 @@
 import { Link } from "react-router-dom";
-import data from "../data/storeData.js";
+import data from "../data/data.json";
 import style from "../assets/style";
 
 function SeeAll() {
   return (
-    <section className="px-[1.2rem] bg-[#222] ">
-      <div className="flex flex-col gap-8 pt-8 pb-20">
-        {data.data.map((item) => (
-          <Link key={item.id} to={`${item.id}`} className="flex flex-col">
+    <section className=" bg-[#222] ">
+      <div className="bg-black pt-4">
+        <h1 className="text-xl font-semibold text-center mb-6">GAMING MICE</h1>
+        <nav className="px-[1.2rem] text-sm ">
+          <ul className="flex gap-4">
+            <li className="pb-2 font-semibold border-b-2 border-[color:var(--cx-color-primary)] text-[color:var(--cx-color-primary)]">
+              MICE
+            </li>
+            <li className="pb-2 font-semibold text-[#888] ">ACCESSORIES</li>
+          </ul>
+        </nav>
+      </div>
+      <div className="flex flex-col gap-8 pt-8 pb-20 px-[1.2rem]">
+        {data.map((item) => (
+          <Link key={item.id} to={`/${item.id}`} className="flex flex-col">
             <div className="relative">
               <div className="bg-[#111] w-full h-full flex justify-center items-center">
                 <img className="w-[80%]" src={item.image} alt="" />

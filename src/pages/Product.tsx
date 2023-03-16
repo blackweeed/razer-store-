@@ -10,7 +10,6 @@ function Product() {
   const { id } = useParams();
   const item = data[Number(id)];
   const [slideIndex, setSlideIndex] = useState(0);
-  const [selected, setSelected] = useState<string>("");
 
   let arrayLength = item.images.length;
 
@@ -21,12 +20,7 @@ function Product() {
     setSlideIndex((prev) => prev + 1);
   };
 
-  const {
-    getItemQuantity,
-    increaseCartQuantity,
-    decreaseCartQuantity,
-    removeFromCart,
-  } = useShoppingCart();
+  const { increaseCartQuantity } = useShoppingCart();
 
   return (
     <div className="mb-20">
@@ -60,7 +54,7 @@ function Product() {
         </ul>
       </div>
       <div className="flex flex-col gap-6 px-4">
-        <Selection color={item.color} />
+        {item.color && <Selection color={item.color} name={item.name} />}
         <button
           className={`${style.button}`}
           onClick={() => increaseCartQuantity(Number(id))}
