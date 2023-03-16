@@ -27,10 +27,12 @@ function Navbar() {
           alt="cart"
           className="w-6 h-6 cursor-pointer "
         />
-        <div className="absolute -top-2 -right-2 w-3.5 h-3.5 bg-[color:var(--cx-color-primary)] rounded-full flex justify-center items-center">
-          <p className="text-black text-[10px] font-medium">{cartQuantity}</p>
-        </div>
-        <Cart toggle={toggle} />
+        {cartQuantity !== 0 && (
+          <div className="absolute -top-2 -right-2 w-3.5 h-3.5 bg-[color:var(--cx-color-primary)] rounded-full flex justify-center items-center">
+            <p className="text-black text-[10px] font-medium">{cartQuantity}</p>
+          </div>
+        )}
+        <Cart toggle={toggle} setToggle={setToggle} />
       </span>
     </nav>
   );
