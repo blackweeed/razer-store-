@@ -1,4 +1,5 @@
 import ProductView from "../components/ProductView";
+import InfiniteSlider from "../components/InfiniteSlider";
 import data from "../data/data.json";
 import { Link } from "react-router-dom";
 
@@ -125,6 +126,7 @@ function Home() {
             </div>
           ))}
       </div>
+      <InfiniteSlider />
     </section>
   );
 }
