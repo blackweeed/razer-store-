@@ -23,7 +23,6 @@ body {
   margin-bottom: 100px;
   display: flex;
   overflow: auto;
-  /* gap: 2rem; */
   flex: none;
   scroll-snap-type: x proximity;
   width: 100%;
@@ -99,4 +98,19 @@ select {
   background-size: 18px auto;
   height: 26px;
   width: 26px;
+}
+
+/* esesl  */
+
+@keyframes scroll {
+  0% {
+    left: 0;
+  }
+  100% {
+    left: -100%;
+  }
+}
+
+.animate {
+  animation: scroll 5s linear infinite;
 }

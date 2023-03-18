@@ -1,9 +1,12 @@
 import ProductView from "../components/ProductView";
 import InfiniteSlider from "../components/InfiniteSlider";
 import data from "../data/data.json";
+import data2 from "../data/test.json";
 import { Link } from "react-router-dom";
 
 function Home() {
+  console.log(data2["model-descriptions"]);
+
   const getTooFirstWords = (string: string) => {
     return string.split(" ").slice(0, 2).join(" ");
   };
@@ -126,7 +129,6 @@ function Home() {
             </div>
           ))}
       </div>
-      <InfiniteSlider />
     </section>
   );
 }
