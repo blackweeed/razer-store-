@@ -41,10 +41,7 @@ function Selection({ color, name }: Props) {
               key={index}
               onClick={(e) => {
                 navigate(
-                  `/${
-                    data.find((x) => x.color === e.currentTarget.textContent)
-                      ?.name
-                  }/${
+                  `/mice/${
                     data.find((x) => x.color === e.currentTarget.textContent)
                       ?.id
                   }`

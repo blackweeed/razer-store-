@@ -1,7 +1,7 @@
 import Navbar from "./components/Navbar";
 import Home from "./pages/Home";
 import Product from "./pages/Product";
-import SeeAll from "./pages/SeeAll";
+import SeeAll from "./pages/SeeAll/SeeAll";
 import { Routes, Route, Outlet } from "react-router-dom";
 import Cart from "./pages/Cart";
 import { ShoppingCartProvider } from "./context/ShoppingCartContext";
@@ -26,8 +26,10 @@ function App() {
           <Route element={<Layout />}>
             <Route path="/" element={<Home />} />
             <Route path="/cart" element={<Cart />} />
-            <Route path="/all" element={<SeeAll />} />
-            <Route path={`/:name/:id`} element={<Product />} />
+            <Route path="/mice" element={<SeeAll />} />
+            <Route path="/accessories" element={<SeeAll />} />
+            <Route path={`/mice/:id`} element={<Product />} />
+            <Route path={`/accessories/:id`} element={<Product />} />
           </Route>
           <Route path="/login" element={<Login />} />
           <Route path="/register" element={<Register />} />

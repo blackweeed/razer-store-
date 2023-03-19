@@ -188,9 +188,29 @@
         "https://assets3.razerzone.com/UHmGwm2hwyAZNytOlUoygk1VS0I=/1500x1000/https%3A%2F%2Fhybrismediaprod.blob.core.windows.net%2Fsys-master-phoenix-images-container%2Fh27%2Fh6b%2F9081450659870%2FRazer-Naga-Left-Handed-Edition-Gallery3.jpg",
         "https://assets3.razerzone.com/eYjVnOIhezgNUoP5Ji_c36rd98s=/1500x1000/https%3A%2F%2Fhybrismediaprod.blob.core.windows.net%2Fsys-master-phoenix-images-container%2Fhff%2Fh63%2F9081450889246%2FRazer-Naga-Left-Handed-Edition-Gallery0.jpg"
       ]
+    },
+    {
+      "id": 10,
+      "image": "https://assets3.razerzone.com/8hxWWCZYPAt97KYGhSjU7jAYHvA=/500x500/https%3A%2F%2Fhybrismediaprod.blob.core.windows.net%2Fsys-master-phoenix-images-container%2Fh09%2Fh7d%2F9398870278174%2Fviper-v2-pro-black-500x500.png",
+      "name": "Razer Viper V2 Pro",
+      "color": "Black",
+      "description": "Ultra-lightweight, Ultra-fast Wireless Esports Mouse      ",
+      "descriptions": [
+        "58g Ultra-lightweight Design        ",
+        "Razer™ Optical Mouse Switches Gen-3        ",
+        "Razer™ HyperSpeed Wireless        "
+      ],
+      "price": 149.99,
+      "new": false,
+      "exclusive": false,
+      "images": [
+        "https://assets3.razerzone.com/ukge_aS9awG4vhZPc3Yfo5RHrGw=/1500x1000/https%3A%2F%2Fhybrismediaprod.blob.core.windows.net%2Fsys-master-phoenix-images-container%2Fhff%2Fhfd%2F9398892691486%2F2-220510-viper-v2-pro-black-1500x1000-1.jpg",
+        "https://assets3.razerzone.com/Fg9k3V00KUMzqL9GuHMEJShbYF0=/1500x1000/https%3A%2F%2Fhybrismediaprod.blob.core.windows.net%2Fsys-master-phoenix-images-container%2Fhc7%2Fhf3%2F9398892396574%2F2-220510-viper-v2-pro-black-1500x1000-3.jpg",
+        "https://assets3.razerzone.com/0hnfh5yQl7z5d-aaYErtmiSqnAc=/1500x1000/https%3A%2F%2Fhybrismediaprod.blob.core.windows.net%2Fsys-master-phoenix-images-container%2Fhab%2Fhfe%2F9398892789790%2F2-220510-viper-v2-pro-black-1500x1000-6.jpg"
+      ]
     }
   ],
-  "accersories": [
+  "accessories": [
     {
       "id": 0,
       "image": "https://assets3.razerzone.com/p0dXGVhqaT1PZs7c448c_ZyOw0M=/300x300/https%3A%2F%2Fhybrismediaprod.blob.core.windows.net%2Fsys-master-phoenix-images-container%2Fh04%2Fh7d%2F9449945890846%2Fmouse-dock-pro-puck-500x500.png",
@@ -254,6 +274,7 @@
   "model-descriptions": {
     "razer deathadder": "Competitive gaming mice with an award-winning legacy of iconic ergonomics",
     "razer naga": "MMO and MOBA-centric gaming mice with a unique 12-button thumb grid for maximum control",
-    "razer basilisk": "Feature-rich, highly customizable gaming mice designed to fit any playstyle"
+    "razer basilisk": "Feature-rich, highly customizable gaming mice designed to fit any playstyle",
+    "razer viper": "A range of ultra-lightweight, high-performance gaming mice bred for esports"
   }
 }

@@ -1,5 +1,5 @@
 import { useState } from "react";
-import data from "../data/data.json";
+import data2 from "../data/test.json";
 import { BsChevronLeft, BsChevronRight } from "react-icons/bs";
 import { useParams } from "react-router-dom";
 import Selection from "../components/Selection.js";
@@ -8,7 +8,14 @@ import { useShoppingCart } from "../context/ShoppingCartContext.js";
 
 function Product() {
   const { id } = useParams();
-  const item = data[Number(id)];
+  const category = window.location.pathname
+    .replace(/[0-9]/g, "")
+    .replace("/", "")
+    .replace("/", "");
+
+  console.log(category);
+
+  const item = data2[`${category}`][Number(id)];
   const [slideIndex, setSlideIndex] = useState(0);
 
   let arrayLength = item.images.length;

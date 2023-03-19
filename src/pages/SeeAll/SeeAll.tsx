@@ -1,26 +1,50 @@
-import { Link } from "react-router-dom";
-import data from "../data/data.json";
-import style from "../assets/style";
+import { Link, useNavigate } from "react-router-dom";
+import data from "../../data/test.json";
+import style from "../../assets/style";
+import { useState } from "react";
 
 function SeeAll() {
+  const navigate = useNavigate();
+  const [toggle, setToggle] = useState("mice");
+  const active =
+    "border-b-2 border-[color:var(--cx-color-primary)] text-[color:var(--cx-color-primary)]";
+
   return (
     <section className=" bg-[#222] ">
       <div className="bg-black pt-4">
         <h1 className="text-xl font-semibold text-center mb-6">GAMING MICE</h1>
         <nav className="px-[1.2rem] text-sm ">
           <ul className="flex gap-4">
-            <li className="pb-2 font-semibold border-b-2 border-[color:var(--cx-color-primary)] text-[color:var(--cx-color-primary)]">
+            <li
+              onClick={(e) => (
+                setToggle(e.currentTarget.textContent?.toLowerCase()),
+                navigate("/mice")
+              )}
+              className={`pb-2 font-semibold text-[#888] ${
+                toggle.toLocaleLowerCase() === "mice" && active
+              }`}
+            >
               MICE
             </li>
-            <li className="pb-2 font-semibold text-[#888] ">ACCESSORIES</li>
+            <li
+              onClick={(e) => (
+                setToggle(e.currentTarget.textContent?.toLowerCase()),
+                navigate("/accessories")
+              )}
+              className={`pb-2 font-semibold text-[#888] ${
+                toggle.toLocaleLowerCase() === "accessories" && active
+              }`}
+            >
+              ACCESSORIES
+            </li>
           </ul>
         </nav>
       </div>
       <div className="flex flex-col gap-8 pt-8 pb-20 px-[1.2rem]">
-        {data.map((item) => (
+        {data[`${toggle}`].map((item) => (
           <Link
             key={item.id}
-            to={`/${item.name}/${item.id}`}
+            to={`/${toggle}/${item.id}`}
             className="flex flex-col"
           >
             <div className="relative">
@@ -39,7 +63,7 @@ function SeeAll() {
                   {item.name} {item.color}
                 </h2>
                 <ul className="text-[#888] list-disc ml-5 text-[.875rem]  mb-6">
-                  {item.descriptions?.map((des, i) => (
+                  {item.descriptions?.map((des: string, i: number) => (
                     <li key={i}>{des}</li>
                   ))}
                 </ul>
