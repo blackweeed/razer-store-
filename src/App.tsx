@@ -8,6 +8,7 @@ import { ShoppingCartProvider } from "./context/ShoppingCartContext";
 import Login from "./pages/Login";
 import Register from "./pages/Register";
 import PageNotFound from "./pages/PageNotFound";
+import { Dane } from "./components/Dane";
 
 function Layout() {
   return (
@@ -25,6 +26,7 @@ function App() {
         <Routes>
           <Route element={<Layout />}>
             <Route path="/" element={<Home />} />
+            <Route path="/dane" element={<Dane />} />
             <Route path="/cart" element={<Cart />} />
             <Route path="/mice" element={<SeeAll />} />
             <Route path="/accessories" element={<SeeAll />} />
