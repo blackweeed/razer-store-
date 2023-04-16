@@ -17,7 +17,7 @@ function Product() {
       setData(result.data);
     };
     fetchData();
-  }, []);
+  }, [id]);
 
   return (
     <div className="mb-20">
@@ -41,10 +41,10 @@ function Product() {
         </ul>
       </div>
       <div className="flex flex-col gap-6 px-4">
-        {data.color && <Selection color={data.color} name={data.name} />}
+        {data.color && <Selection color={data.color} model={data.model} />}
         <button
           className={`${style.button}`}
-          onClick={() => increaseCartQuantity(Number(id))}
+          onClick={() => increaseCartQuantity(`${id}`)}
         >
           ADD TO CART
         </button>

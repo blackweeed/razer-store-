@@ -28,7 +28,7 @@ function Home() {
               .filter((item) => getTooFirstWords(item.name) === i)
               .map((item) => (
                 <div key={item.id}>
-                  <Link to={`mice/${item.id}`}>
+                  <Link to={`/mice/${item.id}`}>
                     <div className="relative">
                       <img className="image" src={item.image} alt="" />
                       {item.new && (

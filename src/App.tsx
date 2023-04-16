@@ -25,8 +25,8 @@ function App() {
       <ShoppingCartProvider>
         <Routes>
           <Route element={<Layout />}>
-            <Route path="/" element={<Home />} />
-            <Route path="/dane" element={<Dane />} />
+            <Route path="/" element={<Dane />} />
+            <Route path="/dane" element={<Home />} />
             <Route path="/cart" element={<Cart />} />
             <Route path="/mice" element={<SeeAll />} />
             <Route path="/accessories" element={<SeeAll />} />

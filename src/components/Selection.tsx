@@ -1,19 +1,27 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { GoChevronDown } from "react-icons/go";
 import { useNavigate } from "react-router-dom";
-import data from "../data/data.json";
+import axios from "axios";
 
 type Props = {
   color?: string;
-  name: string;
+  model: string;
 };
 
-function Selection({ color, name }: Props) {
+function Selection({ color, model }: Props) {
+  const [data, setData] = useState([]);
   const [active, setActive] = useState(false);
-  const filteredColors = data.filter((item) => item.name === name);
-  const colors = filteredColors.map((item) => item.color);
+  const currentLine = data.filter((item) => item.model === model);
 
   const navigate = useNavigate();
+
+  useEffect(() => {
+    const fetchData = async () => {
+      const result = await axios("http://127.0.0.1:4000/getData");
+      setData(result.data);
+    };
+    fetchData();
+  }, []);
 
   return (
     <div
@@ -36,22 +44,15 @@ function Selection({ color, name }: Props) {
             active ? "" : "hidden"
           }`}
         >
-          {colors.map((item, index) => (
+          {currentLine.map((item) => (
             <p
-              key={index}
-              onClick={(e) => {
-                navigate(
-                  `/mice/${
-                    data.find((x) => x.color === e.currentTarget.textContent)
-                      ?.id
-                  }`
-                );
-              }}
+              key={item._id}
+              onClick={() => navigate("/mice/" + item._id)}
               className={`pl-4 pt-2 pb-1 cursor-pointer hover:bg-[black] rounded-lg ${
-                item === color ? "text-white" : null
+                item.color === color ? "text-white" : null
               }`}
             >
-              <span>{item}</span>
+              <span>{item.color}</span>
             </p>
           ))}
         </div>

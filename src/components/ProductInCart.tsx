@@ -1,7 +1,7 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { FiChevronDown } from "react-icons/fi";
 import { useShoppingCart } from "../context/ShoppingCartContext";
-import data from "../data/data.json";
+import axios from "axios";
 
 type CartItemProps = {
   id: number;
@@ -9,13 +9,21 @@ type CartItemProps = {
 };
 
 function ProductInCart({ id, quantity }: CartItemProps) {
-  const [toggle, setToggle] = useState(false);
-  const { increaseCartQuantity, decreaseCartQuantity, removeFromCart } =
-    useShoppingCart();
+  const [data, setData] = useState([]);
 
-  const item = data[id];
-  // const item = data.find((i) => i.id === id);
-  // if (item == null) return null;
+  useEffect(() => {
+    const fetchData = async () => {
+      const result = await axios(`http://127.0.0.1:4000/getData`);
+      setData(result.data);
+    };
+    fetchData();
+  }, []);
+
+  const [toggle, setToggle] = useState(false);
+  const { increaseCartQuantity, decreaseCartQuantity } = useShoppingCart();
+
+  const item = data.find((i) => i._id === id);
+  if (item == null) return null;
 
   return (
     <div className="px-4 py-4">
@@ -58,7 +66,6 @@ function ProductInCart({ id, quantity }: CartItemProps) {
                 ? "https://www.razer.com/assets/images/icons/icon-delete.svg"
                 : "https://www.razer.com/assets/images/icons/icon-minus-circle.svg"
             }
-            // src="https://www.razer.com/assets/images/icons/icon-minus-circle.svg"
             alt=""
           />
           <span className="w-14 h-12 border border-[#888] rounded-[4px] flex items-center justify-center">

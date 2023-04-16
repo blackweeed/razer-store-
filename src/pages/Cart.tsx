@@ -1,11 +1,21 @@
+import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import style from "../assets/style";
 import ProductInCart from "../components/ProductInCart";
 import { useShoppingCart } from "../context/ShoppingCartContext";
-import data from "../data/data.json";
+import axios from "axios";
 
 function Cart() {
   const { cartItems } = useShoppingCart();
+  const [data, setData] = useState([]);
+
+  useEffect(() => {
+    const fetchData = async () => {
+      const result = await axios(`http://127.0.0.1:4000/getData`);
+      setData(result.data);
+    };
+    fetchData();
+  }, []);
 
   return (
     <section>
@@ -25,7 +35,7 @@ function Cart() {
             <h2 className="text-[17px] leading-5 font-semibold max-w-[150px]">
               Your cart total is US$
               {cartItems.reduce((total, cartItem) => {
-                const item = data.find((i) => i.id === cartItem.id);
+                const item = data.find((i) => i._id === cartItem.id);
                 return total + (item?.price || 0) * cartItem.quantity;
               }, 0)}
             </h2>

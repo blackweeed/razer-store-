@@ -1,7 +1,8 @@
 import { Link } from "react-router-dom";
 import { useShoppingCart } from "../context/ShoppingCartContext";
-import data from "../data/data.json";
 import style from "../assets/style.js";
+import { useEffect, useState } from "react";
+import axios from "axios";
 
 type Props = {
   toggle: boolean;
@@ -10,6 +11,15 @@ type Props = {
 
 function Cart({ toggle, setToggle }: Props) {
   const { cartQuantity, cartItems } = useShoppingCart();
+  const [data, setData] = useState([]);
+
+  useEffect(() => {
+    const fetchData = async () => {
+      const result = await axios(`http://127.0.0.1:4000/getData`);
+      setData(result.data);
+    };
+    fetchData();
+  }, []);
 
   return (
     <div
@@ -24,7 +34,8 @@ function Cart({ toggle, setToggle }: Props) {
       ) : (
         <>
           {cartItems.map((item) => {
-            const product = data[item.id];
+            const product = data.find((element) => element._id === item.id);
+
             return (
               <div
                 key={crypto.randomUUID()}
@@ -47,6 +58,7 @@ function Cart({ toggle, setToggle }: Props) {
                 </div>
               </div>
             );
+            return <p>elo</p>;
           })}
           <Link to="/cart" onClick={() => setToggle(false)}>
             <button className={`${style.button} mt-8 mb-4`}>checkout</button>
