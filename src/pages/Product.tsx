@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { BsChevronLeft, BsChevronRight } from "react-icons/bs";
-import { useParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import Selection from "../components/Selection.js";
 import style from "../assets/style.js";
 import { useShoppingCart } from "../context/ShoppingCartContext.js";
@@ -8,8 +8,10 @@ import axios from "axios";
 
 function Product() {
   const { id } = useParams();
+  const navigate = useNavigate();
   const { increaseCartQuantity } = useShoppingCart();
   const [data, setData] = useState([]);
+  const [popup, setPopup] = useState(false);
 
   useEffect(() => {
     const fetchData = async () => {
@@ -41,13 +43,36 @@ function Product() {
         </ul>
       </div>
       <div className="flex flex-col gap-6 px-4">
-        {data.color && <Selection color={data.color} model={data.model} />}
+        {data.color && (
+          <Selection
+            color={data.color}
+            model={data.model}
+            category={data.category}
+          />
+        )}
         <button
           className={`${style.button}`}
-          onClick={() => increaseCartQuantity(`${id}`)}
+          onClick={() => {
+            setPopup(true);
+            increaseCartQuantity(`${id}`);
+          }}
         >
           ADD TO CART
         </button>
+        {popup && (
+          <div className="fixed w-full h-screen inset-0 bg-black/70 flex justify-center items-center text-center">
+            <div>
+              U added a <b>{data.name}</b>
+              <br />
+              <button
+                className={`${style.button} mt-4`}
+                onClick={() => navigate("/cart")}
+              >
+                Go to cart
+              </button>
+            </div>
+          </div>
+        )}
       </div>
     </div>
   );

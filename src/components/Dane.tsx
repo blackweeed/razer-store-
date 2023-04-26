@@ -10,7 +10,7 @@ export const Dane = () => {
 
   useEffect(() => {
     const fetchData = async () => {
-      const result = await axios("http://127.0.0.1:4000/getData");
+      const result = await axios("http://127.0.0.1:4000/mice");
       setData(result.data);
     };
     fetchData();
@@ -48,6 +48,26 @@ export const Dane = () => {
                               EXCLUSIVE
                             </div>
                           )}
+
+                          <div className="absolute bottom-4 right-0 px-3  text-[1rem] flex gap-2">
+                            {data
+                              .filter((curItem) => curItem.model === item.model)
+                              .map((color) => {
+                                if (
+                                  data.filter(
+                                    (curItem) => curItem.model === item.model
+                                  ).length === 1
+                                ) {
+                                  return "";
+                                } else {
+                                  return (
+                                    <div
+                                      className={`w-6 h-6 ${""} rounded-full border border-white`}
+                                    />
+                                  );
+                                }
+                              })}
+                          </div>
                         </div>
                         <div className="px-4 pb-4 h-[200px] flex flex-col justify-between ">
                           <div>

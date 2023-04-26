@@ -58,7 +58,6 @@ function Cart({ toggle, setToggle }: Props) {
                 </div>
               </div>
             );
-            return <p>elo</p>;
           })}
           <Link to="/cart" onClick={() => setToggle(false)}>
             <button className={`${style.button} mt-8 mb-4`}>checkout</button>

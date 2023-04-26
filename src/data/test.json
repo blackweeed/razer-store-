@@ -272,9 +272,9 @@
     }
   ],
   "model-descriptions": {
-    "razer deathadder": "Competitive gaming mice with an award-winning legacy of iconic ergonomics",
-    "razer naga": "MMO and MOBA-centric gaming mice with a unique 12-button thumb grid for maximum control",
-    "razer basilisk": "Feature-rich, highly customizable gaming mice designed to fit any playstyle",
-    "razer viper": "A range of ultra-lightweight, high-performance gaming mice bred for esports"
+    "deathadder": "Competitive gaming mice with an award-winning legacy of iconic ergonomics",
+    "naga": "MMO and MOBA-centric gaming mice with a unique 12-button thumb grid for maximum control",
+    "basilisk": "Feature-rich, highly customizable gaming mice designed to fit any playstyle",
+    "viper": "A range of ultra-lightweight, high-performance gaming mice bred for esports"
   }
 }

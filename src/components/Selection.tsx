@@ -6,9 +6,10 @@ import axios from "axios";
 type Props = {
   color?: string;
   model: string;
+  category: string;
 };
 
-function Selection({ color, model }: Props) {
+function Selection({ color, model, category }: Props) {
   const [data, setData] = useState([]);
   const [active, setActive] = useState(false);
   const currentLine = data.filter((item) => item.model === model);
@@ -47,7 +48,9 @@ function Selection({ color, model }: Props) {
           {currentLine.map((item) => (
             <p
               key={item._id}
-              onClick={() => navigate("/mice/" + item._id)}
+              onClick={() =>
+                navigate(`/${category.toLocaleLowerCase()}/${item._id}`)
+              }
               className={`pl-4 pt-2 pb-1 cursor-pointer hover:bg-[black] rounded-lg ${
                 item.color === color ? "text-white" : null
               }`}

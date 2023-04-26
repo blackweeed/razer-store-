@@ -9,6 +9,11 @@ function Cart() {
   const { cartItems } = useShoppingCart();
   const [data, setData] = useState([]);
 
+  function roundToTwoDecimalPlaces(number) {
+    var roundedNumber = Math.round(number * 100) / 100; // zaokrąglamy do dwóch miejsc po przecinku
+    return " US$" + roundedNumber.toFixed(2); // dodajemy symbol dolara i formatujemy wynik do dwóch miejsc po przecinku
+  }
+
   useEffect(() => {
     const fetchData = async () => {
       const result = await axios(`http://127.0.0.1:4000/getData`);
@@ -33,11 +38,13 @@ function Cart() {
         <>
           <div className="flex items-start justify-between bg-[#222] px-4 py-4">
             <h2 className="text-[17px] leading-5 font-semibold max-w-[150px]">
-              Your cart total is US$
-              {cartItems.reduce((total, cartItem) => {
-                const item = data.find((i) => i._id === cartItem.id);
-                return total + (item?.price || 0) * cartItem.quantity;
-              }, 0)}
+              Your cart total is
+              {roundToTwoDecimalPlaces(
+                cartItems.reduce((total, cartItem) => {
+                  const item = data.find((i) => i._id === cartItem.id);
+                  return total + (item?.price || 0) * cartItem.quantity;
+                }, 0)
+              )}
             </h2>
             <button className={`${style.button}`}>CHECKOUT</button>
           </div>
