@@ -5,13 +5,17 @@ import ProductInCart from "../components/ProductInCart";
 import { useShoppingCart } from "../context/ShoppingCartContext";
 import axios from "axios";
 
+interface Product {
+  _id: number;
+  price: number;
+}
+
 function Cart() {
   const { cartItems } = useShoppingCart();
-  const [data, setData] = useState([]);
+  const [data, setData] = useState<Product[]>([]);
 
-  function roundToTwoDecimalPlaces(number) {
-    var roundedNumber = Math.round(number * 100) / 100; // zaokrąglamy do dwóch miejsc po przecinku
-    return " US$" + roundedNumber.toFixed(2); // dodajemy symbol dolara i formatujemy wynik do dwóch miejsc po przecinku
+  function roundToTwoDecimalPlaces(number: number): number {
+    return Math.round(number * 100) / 100;
   }
 
   useEffect(() => {
@@ -38,9 +42,9 @@ function Cart() {
         <>
           <div className="flex items-start justify-between bg-[#222] px-4 py-4">
             <h2 className="text-[17px] leading-5 font-semibold max-w-[150px]">
-              Your cart total is
+              Your cart total is US$
               {roundToTwoDecimalPlaces(
-                cartItems.reduce((total, cartItem) => {
+                cartItems.reduce((total: number, cartItem) => {
                   const item = data.find((i) => i._id === cartItem.id);
                   return total + (item?.price || 0) * cartItem.quantity;
                 }, 0)
