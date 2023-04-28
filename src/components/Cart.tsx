@@ -3,6 +3,7 @@ import { useShoppingCart } from "../context/ShoppingCartContext";
 import style from "../assets/style.js";
 import { useEffect, useState } from "react";
 import axios from "axios";
+import { Product } from "../assets/types/Product";
 
 type Props = {
   toggle: boolean;
@@ -11,7 +12,7 @@ type Props = {
 
 function Cart({ toggle, setToggle }: Props) {
   const { cartQuantity, cartItems } = useShoppingCart();
-  const [data, setData] = useState([]);
+  const [data, setData] = useState<Product[]>([]);
 
   useEffect(() => {
     const fetchData = async () => {
@@ -34,18 +35,22 @@ function Cart({ toggle, setToggle }: Props) {
       ) : (
         <>
           {cartItems.map((item) => {
-            const product = data.find((element) => element._id === item.id);
+            const product = data.find(
+              (element) => element._id === item.id.toString()
+            );
 
-            return (
+            return product ? (
               <div
                 key={crypto.randomUUID()}
                 className={`${style.border} flex items-center mt-2`}
               >
-                <img
-                  className="w-16 h-16 pt-2 object-contain"
-                  src={product.image}
-                  alt={product.name}
-                />
+                {product.image && (
+                  <img
+                    className="w-16 h-16 pt-2 object-contain"
+                    src={product.image}
+                    alt={product.name}
+                  />
+                )}
                 <div>
                   <h2>{product.name}</h2>
                   <p
@@ -57,7 +62,7 @@ function Cart({ toggle, setToggle }: Props) {
                   </p>
                 </div>
               </div>
-            );
+            ) : null;
           })}
           <Link to="/cart" onClick={() => setToggle(false)}>
             <button className={`${style.button} mt-8 mb-4`}>checkout</button>

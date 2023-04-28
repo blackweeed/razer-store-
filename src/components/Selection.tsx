@@ -2,15 +2,10 @@ import { useEffect, useState } from "react";
 import { GoChevronDown } from "react-icons/go";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
+import { Product } from "../assets/types/Product";
 
-type Props = {
-  color?: string;
-  model: string;
-  category: string;
-};
-
-function Selection({ color, model, category }: Props) {
-  const [data, setData] = useState([]);
+function Selection({ color, model, category }: Product) {
+  const [data, setData] = useState<Product[]>([]);
   const [active, setActive] = useState(false);
   const currentLine = data.filter((item) => item.model === model);
 

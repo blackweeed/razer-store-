@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import { FiChevronDown } from "react-icons/fi";
 import { useShoppingCart } from "../context/ShoppingCartContext";
+import { Product } from "../assets/types/Product";
 import axios from "axios";
 
 type CartItemProps = {
@@ -9,7 +10,7 @@ type CartItemProps = {
 };
 
 function ProductInCart({ id, quantity }: CartItemProps) {
-  const [data, setData] = useState([]);
+  const [data, setData] = useState<Product[]>([]);
 
   useEffect(() => {
     const fetchData = async () => {
@@ -22,7 +23,7 @@ function ProductInCart({ id, quantity }: CartItemProps) {
   const [toggle, setToggle] = useState(false);
   const { increaseCartQuantity, decreaseCartQuantity } = useShoppingCart();
 
-  const item = data.find((i) => i._id === id);
+  const item = data.find((i) => i._id === id.toString());
   if (item == null) return null;
 
   return (
