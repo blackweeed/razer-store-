@@ -21,7 +21,7 @@ function Selection({ color, model, category }: Product) {
 
   return (
     <div
-      className={` pb-6 pl-2.5 relative w-[200px] border border-[#999] text-[#999] rounded-lg cursor-pointer ${
+      className={`pb-6 pl-2.5 relative w-[240px] border border-[#999] text-[#999] rounded-lg cursor-pointer ${
         active &&
         "border-[color:var(--cx-color-primary)] text-[color:var(--cx-color-primary)] shadow"
       }`}
@@ -36,7 +36,7 @@ function Selection({ color, model, category }: Product) {
           className={`${active && "rotate-180"}`}
         />
         <div
-          className={`absolute -top-28 left-0 bg-[#111] text-[#888] w-full h-fit rounded-lg border border-[#666]  ${
+          className={`absolute bottom-14 left-0 bg-[#111] text-[#888] w-full h-fit rounded-lg border border-[#666]  ${
             active ? "" : "hidden"
           }`}
         >

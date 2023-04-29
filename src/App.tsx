@@ -24,7 +24,7 @@ function App() {
       <ShoppingCartProvider>
         <Routes>
           <Route element={<Layout />}>
-            <Route path="/" element={<Dane />} />
+            <Route path="/" element={<Dane text="mice" />} />
             <Route path="/gaming-mice" element={<Dane text="mice" />} />
             <Route path="/gaming-audio" element={<Dane text="audio" />} />
             <Route
@@ -38,6 +38,8 @@ function App() {
               element={<SeeAll type={"accessories"} />}
             />
             <Route path={`/mice/:id`} element={<Product />} />
+            <Route path={`/audio/:id`} element={<Product />} />
+            {<Route path={`/keyboards/:id`} element={<Product />} />}
             <Route path={`/accessories/:id`} element={<Product />} />
           </Route>
           <Route path="/login" element={<Login />} />

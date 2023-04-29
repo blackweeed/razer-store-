@@ -13,9 +13,13 @@ export const Dane = ({ text }) => {
   const lastPart = currentUrl.split("/").pop();
   const category = lastPart.split("-")[1];
 
+  console.log(category);
+
   useEffect(() => {
     const fetchData = async () => {
-      const result = await axios(`http://127.0.0.1:4000/${category}`);
+      const result = await axios(
+        `http://127.0.0.1:4000/${category === undefined ? "mice" : category}`
+      );
       setData(result.data);
     };
     fetchData();
@@ -41,7 +45,7 @@ export const Dane = ({ text }) => {
                   .filter((test) => test.line === line)
                   .map((item) => (
                     <div key={item._id}>
-                      <Link to={`/mice/${item._id}`}>
+                      <Link to={`/${category}/${item._id}`}>
                         <div className="relative">
                           <img className="image" src={item.image} alt="" />
                           {item.new && (
