@@ -7,7 +7,7 @@ function Login() {
   const [login, setLogin] = useState("");
   const [password, setPassword] = useState("");
 
-  const handleChange = (e) => {
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     if (e.target.type === "email") {
       setLogin(e.target.value);
     } else if (e.target.type === "password") {

@@ -2,9 +2,10 @@ import { useEffect, useState } from "react";
 import axios from "axios";
 import { Link } from "react-router-dom";
 import ProductView from "./ProductView";
+import { Product } from "../assets/types/Product";
 
 export const Dane = () => {
-  const [data, setData] = useState([]);
+  const [data, setData] = useState<Product[]>([]);
   const lineArray = data.map((item) => item.line);
   const uniqueLineArr = [...new Set(lineArray)];
 
@@ -26,15 +27,15 @@ export const Dane = () => {
         </p>
       </div>
       <>
-        {uniqueLineArr.map((line) => {
+        {uniqueLineArr.map((line, i) => {
           return (
-            <div>
+            <div key={i}>
               <ProductView brand={line} />
               <div className="container">
                 {data
                   .filter((test) => test.line === line)
                   .map((item) => (
-                    <div key={item.id}>
+                    <div key={item._id}>
                       <Link to={`/mice/${item._id}`}>
                         <div className="relative">
                           <img className="image" src={item.image} alt="" />
@@ -52,7 +53,10 @@ export const Dane = () => {
                           <div className="absolute bottom-4 right-0 px-3  text-[1rem] flex gap-2">
                             {data
                               .filter((curItem) => curItem.model === item.model)
-                              .map((color) => {
+                              .reverse()
+                              .map((color, index) => {
+                                console.log(color.color);
+
                                 if (
                                   data.filter(
                                     (curItem) => curItem.model === item.model
@@ -62,7 +66,13 @@ export const Dane = () => {
                                 } else {
                                   return (
                                     <div
-                                      className={`w-6 h-6 ${""} rounded-full border border-white`}
+                                      key={index}
+                                      className={`w-6 h-6 ${
+                                        color.color.toLowerCase() !== "black" &&
+                                        color.color.toLowerCase() !== "white"
+                                          ? "bg-gradient-to-br from-blue-500 to-red-700"
+                                          : `bg-${color.color.toLowerCase()}`
+                                      } rounded-full border border-slate-200`}
                                     />
                                   );
                                 }

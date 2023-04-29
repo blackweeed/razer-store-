@@ -24,7 +24,7 @@ function ProductView({ brand }: Props) {
         <h2 className="leading-tight text-[1.8rem] font-semibold	uppercase">
           THE {brand} RANGE
         </h2>
-        0
+
         <p className="text-[1.2rem] leading-tight">
           {modelDescriptions[brand.toLowerCase()]}
         </p>

@@ -1,6 +1,5 @@
 import { useState } from "react";
 import logo from "../assets/razer-logo.png";
-import { FiShoppingCart } from "react-icons/fi";
 import Cart from "./Cart";
 import { Link } from "react-router-dom";
 import cartIcon from "../assets/cart_icon.svg";
