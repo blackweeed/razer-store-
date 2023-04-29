@@ -12,15 +12,18 @@ function Navbar() {
   return (
     <nav className="flex justify-between items-center px-4 py-4 bg-black border-b border-[#44D62C] relative">
       <span>RAZER</span>
-      <Link to="/" className="absolute inset-0 w-full flex justify-center ">
-        <img
-          src={logo}
-          alt="logo"
-          className="w-[70px] h-[55px] object-contain  "
-        />
-      </Link>
+      <div className="absolute inset-0 w-full flex justify-center ">
+        <Link to="/">
+          <img
+            src={logo}
+            alt="logo"
+            className="w-[70px] h-[55px] object-contain  "
+          />
+        </Link>
+      </div>
       <span className="relative">
         <img
+          id="cart-icon"
           onClick={() => setToggle((prev) => !prev)}
           src={cartIcon}
           alt="cart"

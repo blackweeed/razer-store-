@@ -25,6 +25,12 @@ function App() {
         <Routes>
           <Route element={<Layout />}>
             <Route path="/" element={<Dane />} />
+            <Route path="/gaming-mice" element={<Dane text="mice" />} />
+            <Route path="/gaming-audio" element={<Dane text="audio" />} />
+            <Route
+              path="/gaming-keyboards"
+              element={<Dane text="keyboard" />}
+            />
             <Route path="/cart" element={<Cart />} />
             <Route path="/mice" element={<SeeAll type={"mice"} />} />
             <Route

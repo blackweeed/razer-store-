@@ -1,26 +1,31 @@
 import { useEffect, useState } from "react";
 import axios from "axios";
-import { Link } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 import ProductView from "./ProductView";
 import { Product } from "../assets/types/Product";
+import { Categories } from "./Categories";
 
-export const Dane = () => {
+export const Dane = ({ text }) => {
   const [data, setData] = useState<Product[]>([]);
   const lineArray = data.map((item) => item.line);
   const uniqueLineArr = [...new Set(lineArray)];
+  const currentUrl = window.location.href;
+  const lastPart = currentUrl.split("/").pop();
+  const category = lastPart.split("-")[1];
 
   useEffect(() => {
     const fetchData = async () => {
-      const result = await axios("http://127.0.0.1:4000/mice");
+      const result = await axios(`http://127.0.0.1:4000/${category}`);
       setData(result.data);
     };
     fetchData();
-  }, []);
+  }, [category]);
   return (
-    <section className="">
+    <section>
+      <Categories category={category} />
       <div className="mb-6 px-6">
-        <h1 className="text-[color:var(--cx-color-primary)] text-[2.5rem] font-semibold">
-          GAMING MICE
+        <h1 className="text-[color:var(--cx-color-primary)] text-[2.5rem] font-semibold uppercase leading-tight space tracking-tight">
+          gaming {text}
         </h1>
         <p className="text-[1.3125rem] leading-none font-semibold">
           HIGH-PERFORMANCE WIRED AND WIRELESS MICE MADE FOR EVERY GAMER'S HAND
@@ -55,8 +60,6 @@ export const Dane = () => {
                               .filter((curItem) => curItem.model === item.model)
                               .reverse()
                               .map((color, index) => {
-                                console.log(color.color);
-
                                 if (
                                   data.filter(
                                     (curItem) => curItem.model === item.model

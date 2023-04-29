@@ -22,8 +22,33 @@ function Cart({ toggle, setToggle }: Props) {
     fetchData();
   }, []);
 
+  useEffect(() => {
+    const handleClickOutside = (event: any) => {
+      const cart = document.getElementById("cart");
+
+      // If the clicked element is the cart icon or its child elements, do nothing
+      if (
+        event.target.id === "cart-icon" ||
+        event.target.closest("#cart-icon") !== null
+      ) {
+        return;
+      }
+
+      // If the cart element exists and the clicked element is outside of it, close the cart
+      if (cart && !cart.contains(event.target)) {
+        setToggle(false);
+      }
+    };
+
+    document.body.addEventListener("click", handleClickOutside);
+    return () => {
+      document.body.removeEventListener("click", handleClickOutside);
+    };
+  }, [setToggle]);
+
   return (
     <div
+      id="cart"
       className={`${
         toggle ? "absolute" : "hidden"
       } top-8 -right-2 w-[280px] h-fit bg-[#222] border-2 border-[#555] flex flex-col items-center px-4 rounded-lg text-[0.875rem] z-20`}
