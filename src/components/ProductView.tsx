@@ -2,12 +2,13 @@ import { Link } from "react-router-dom";
 
 type Props = {
   brand: string;
+  category: string;
 };
 type ModelDescriptions = {
   [key: string]: string;
 };
 
-function ProductView({ brand }: Props) {
+function ProductView({ brand, category }: Props) {
   const modelDescriptions: ModelDescriptions = {
     deathadder:
       "Competitive gaming mice with an award-winning legacy of iconic ergonomics",
@@ -16,6 +17,9 @@ function ProductView({ brand }: Props) {
       "Feature-rich, highly customizable gaming mice designed to fit any playstyle",
     viper:
       "A range of ultra-lightweight, high-performance gaming mice bred for esports",
+    blackshark:
+      "Acclaimed esports headsets designed for all-out performance and comfort",
+    blackwidow: "Mechanical gaming keyboards powered by Razer Chroma™ RGB",
   };
 
   return (
@@ -28,7 +32,7 @@ function ProductView({ brand }: Props) {
         <p className="text-[1.2rem] leading-tight">
           {modelDescriptions[brand.toLowerCase()]}
         </p>
-        <Link to="/mice" className="place-self-end mt-4">
+        <Link to={`/${category}`} className="place-self-end mt-4">
           View All{" "}
           <span className="text-[color:var(--cx-color-primary)]">{`>`}</span>
         </Link>

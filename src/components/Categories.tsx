@@ -1,8 +1,10 @@
 import { Link } from "react-router-dom";
 
-export const Categories = ({ category }) => {
-  console.log(category);
+type Props = {
+  category: string | undefined;
+};
 
+export const Categories = ({ category }: Props) => {
   const categories = [
     {
       image:

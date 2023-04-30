@@ -114,3 +114,9 @@ select {
 .animate {
   animation: scroll 5s linear infinite;
 }
+
+@media (min-width: 1024px) {
+  .container > div {
+    width: 20%;
+  }
+}

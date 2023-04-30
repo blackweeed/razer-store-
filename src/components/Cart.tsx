@@ -95,18 +95,15 @@ function Cart({ toggle, setToggle }: Props) {
         </>
       )}
 
-      <span
+      <Link
+        to="/cart"
+        onClick={() => setToggle(false)}
         className={`${style.border} flex items-center gap-5 cursor-pointer hover:text-[#44D62C] test:hover group`}
       >
-        {" "}
-        <Link
-          onClick={() => setToggle(false)}
-          to="/cart"
-          className="elo before:bg-[url('../assets/cart_icon.svg')] before:group-hover:bg-[url('../assets/cart_icon-hover.svg')]"
-        >
+        <p className="elo before:bg-[url('../assets/cart_icon.svg')] before:group-hover:bg-[url('../assets/cart_icon-hover.svg')]">
           Cart {cartQuantity > 0 && `(${cartQuantity})`}
-        </Link>
-      </span>
+        </p>
+      </Link>
       <span
         className={`${style.border} flex items-center gap-5 cursor-pointer hover:text-[#44D62C] group`}
       >
@@ -131,17 +128,15 @@ function Cart({ toggle, setToggle }: Props) {
           RazerStore Rewards
         </p>
       </span>
-      <span
+      <Link
+        to="/login"
         className={`${style.border} border-none flex items-center gap-5 cursor-pointer hover:text-[#44D62C] group`}
       >
         {" "}
-        <Link
-          to="/login"
-          className="elo elo1 before:bg-[url('../assets/signin_icon.svg')] before:group-hover:bg-[url('../assets/signin_icon_hover.svg')]"
-        >
+        <p className="elo elo1 before:bg-[url('../assets/signin_icon.svg')] before:group-hover:bg-[url('../assets/signin_icon_hover.svg')]">
           Log In
-        </Link>
-      </span>
+        </p>
+      </Link>
     </div>
   );
 }

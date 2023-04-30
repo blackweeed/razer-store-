@@ -29,17 +29,19 @@ function App() {
             <Route path="/gaming-audio" element={<Dane text="audio" />} />
             <Route
               path="/gaming-keyboards"
-              element={<Dane text="keyboard" />}
+              element={<Dane text="keyboards" />}
             />
             <Route path="/cart" element={<Cart />} />
             <Route path="/mice" element={<SeeAll type={"mice"} />} />
+            <Route path="/audio" element={<SeeAll type={"audio"} />} />
+            <Route path="/keyboards" element={<SeeAll type={"keyboards"} />} />
             <Route
               path="/accessories"
               element={<SeeAll type={"accessories"} />}
             />
             <Route path={`/mice/:id`} element={<Product />} />
             <Route path={`/audio/:id`} element={<Product />} />
-            {<Route path={`/keyboards/:id`} element={<Product />} />}
+            <Route path={`/keyboards/:id`} element={<Product />} />
             <Route path={`/accessories/:id`} element={<Product />} />
           </Route>
           <Route path="/login" element={<Login />} />

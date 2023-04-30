@@ -23,7 +23,7 @@ function SeeAll({ type }) {
     <section className=" bg-[#222] ">
       <div className="bg-black pt-4">
         <h1 className="text-xl font-semibold text-center mb-6 uppercase">
-          Gaming Mice
+          Gaming {type}
         </h1>
         <nav className="px-[1.2rem] text-sm ">
           <ul className="flex gap-4">
@@ -46,12 +46,12 @@ function SeeAll({ type }) {
           </ul>
         </nav>
       </div>
-      <div className="flex flex-col gap-8 pt-8 pb-20 px-[1.2rem]">
+      <div className="flex flex-col lg:flex-row lg:flex-wrap justify-center gap-8 pt-8 pb-20 px-[1.2rem]">
         {data?.map((item) => (
           <Link
             key={item._id}
             to={`/${type}/${item._id}`}
-            className="flex flex-col"
+            className="flex flex-col lg:w-[20%]"
           >
             <div className="relative">
               <div className="bg-[#111] w-full h-full flex justify-center items-center">
@@ -63,7 +63,7 @@ function SeeAll({ type }) {
                 </div>
               )}
             </div>
-            <div className="px-4 pb-4 h-[fit-content] flex flex-col justify-between bg-black">
+            <div className="px-4 pb-4  flex flex-col justify-between bg-black">
               <div>
                 <h2 className="text-[0.9125rem] mb-4">
                   {item.name} {item.color}

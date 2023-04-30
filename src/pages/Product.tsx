@@ -98,7 +98,7 @@ function Product() {
               onClick={() => setPopup(false)}
             >
               <div>
-                <div className="bg-white/10 px-5 py-4 rounded-lg">
+                <div className="bg-black px-5 py-4 rounded-lg ">
                   U added a <b>{data.name}</b>
                 </div>
                 <br />

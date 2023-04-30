@@ -1,51 +1,56 @@
 import { useEffect, useState } from "react";
 import axios from "axios";
-import { Link, useParams } from "react-router-dom";
+import { Link } from "react-router-dom";
 import ProductView from "./ProductView";
 import { Product } from "../assets/types/Product";
 import { Categories } from "./Categories";
 
-export const Dane = ({ text }) => {
+type Props = {
+  text: string;
+};
+
+export const Dane = ({ text }: Props) => {
   const [data, setData] = useState<Product[]>([]);
   const lineArray = data.map((item) => item.line);
   const uniqueLineArr = [...new Set(lineArray)];
-  const currentUrl = window.location.href;
-  const lastPart = currentUrl.split("/").pop();
-  const category = lastPart.split("-")[1];
 
-  console.log(category);
+  const categoryDescription: Record<string, string> = {
+    keyboards: "FULL-SIZED, TENKEYLESS, AND 60% KEYBOARDS",
+    mice: "HIGH-PERFORMANCE WIRED AND WIRELESS MICE MADE FOR EVERY GAMER'S HAND",
+    audio:
+      "EXPLORE RAZER HEADSETS, WIRELESS HEADPHONES, EARPHONES FOR GAMING & BROADCASTING",
+    [text]: "", // Dodaj indeks dla wartości text
+  };
 
   useEffect(() => {
     const fetchData = async () => {
-      const result = await axios(
-        `http://127.0.0.1:4000/${category === undefined ? "mice" : category}`
-      );
+      const result = await axios(`http://127.0.0.1:4000/${text}`);
       setData(result.data);
     };
     fetchData();
-  }, [category]);
+  }, [text]);
   return (
     <section>
-      <Categories category={category} />
-      <div className="mb-6 px-6">
-        <h1 className="text-[color:var(--cx-color-primary)] text-[2.5rem] font-semibold uppercase leading-tight space tracking-tight">
+      <Categories category={text} />
+      <div className="mb-4 px-6">
+        <h1 className="text-[color:var(--cx-color-primary)] text-[2.5rem] font-semibold uppercase space tracking-tight leading-10 ">
           gaming {text}
         </h1>
-        <p className="text-[1.3125rem] leading-none font-semibold">
-          HIGH-PERFORMANCE WIRED AND WIRELESS MICE MADE FOR EVERY GAMER'S HAND
+        <p className="text-[1.3125rem] leading-none font-semibold ">
+          {categoryDescription[text]}
         </p>
       </div>
       <>
         {uniqueLineArr.map((line, i) => {
           return (
             <div key={i}>
-              <ProductView brand={line} />
+              <ProductView brand={line} category={text} />
               <div className="container">
                 {data
                   .filter((test) => test.line === line)
                   .map((item) => (
                     <div key={item._id}>
-                      <Link to={`/${category}/${item._id}`}>
+                      <Link to={`/${text}/${item._id}`}>
                         <div className="relative">
                           <img className="image" src={item.image} alt="" />
                           {item.new && (

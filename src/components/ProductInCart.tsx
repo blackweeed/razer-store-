@@ -9,6 +9,10 @@ type CartItemProps = {
   quantity: number;
 };
 
+function roundToTwoDecimalPlaces(number: number): number {
+  return Math.round(number * 100) / 100;
+}
+
 function ProductInCart({ id, quantity }: CartItemProps) {
   const [data, setData] = useState<Product[]>([]);
 
@@ -79,7 +83,9 @@ function ProductInCart({ id, quantity }: CartItemProps) {
             alt=""
           />
         </div>
-        <h3 className="text-[17px]">US${item.price * quantity}</h3>
+        <h3 className="text-[17px]">
+          US${roundToTwoDecimalPlaces(item.price * quantity)}
+        </h3>
       </div>
     </div>
   );
