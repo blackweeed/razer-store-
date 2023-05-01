@@ -4,7 +4,7 @@ type Props = {
   category: string | undefined;
 };
 
-export const Categories = ({ category }: Props) => {
+const Categories = ({ category }: Props) => {
   const categories = [
     {
       image:
@@ -30,6 +30,7 @@ export const Categories = ({ category }: Props) => {
     <nav className="flex gap-2 justify-around py-10">
       {categories.map((activeCategory) => (
         <Link
+          key={activeCategory.text}
           to={`/${activeCategory.link}`}
           className="flex flex-col gap-2 cursor-pointer "
         >
@@ -53,3 +54,5 @@ export const Categories = ({ category }: Props) => {
     </nav>
   );
 };
+
+export default Categories;

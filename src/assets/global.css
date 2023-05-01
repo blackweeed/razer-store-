@@ -100,7 +100,18 @@ select {
   width: 26px;
 }
 
-/* esesl  */
+.menu-open {
+  overflow: hidden;
+}
+
+.slide {
+  opacity: 0;
+  transition: opacity 0.5s ease-in-out;
+}
+
+.active {
+  opacity: 1;
+}
 
 @keyframes scroll {
   0% {

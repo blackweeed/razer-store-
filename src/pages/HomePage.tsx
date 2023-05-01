@@ -1,15 +1,14 @@
 import { useEffect, useState } from "react";
-import axios from "axios";
 import { Link } from "react-router-dom";
-import ProductView from "./ProductView";
+import { Categories, ProductView } from "../components";
 import { Product } from "../assets/types/Product";
-import { Categories } from "./Categories";
+import axios from "axios";
 
 type Props = {
   text: string;
 };
 
-export const Dane = ({ text }: Props) => {
+const HomePage = ({ text }: Props) => {
   const [data, setData] = useState<Product[]>([]);
   const lineArray = data.map((item) => item.line);
   const uniqueLineArr = [...new Set(lineArray)];
@@ -30,7 +29,7 @@ export const Dane = ({ text }: Props) => {
     fetchData();
   }, [text]);
   return (
-    <section>
+    <section className="lg:px-20">
       <Categories category={text} />
       <div className="mb-4 px-6">
         <h1 className="text-[color:var(--cx-color-primary)] text-[2.5rem] font-semibold uppercase space tracking-tight leading-10 ">
@@ -118,3 +117,5 @@ export const Dane = ({ text }: Props) => {
     </section>
   );
 };
+
+export default HomePage;

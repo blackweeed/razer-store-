@@ -1,13 +1,15 @@
-import Navbar from "./components/Navbar";
-import Product from "./pages/Product";
-import SeeAll from "./pages/SeeAll/SeeAll";
 import { Routes, Route, Outlet } from "react-router-dom";
-import Cart from "./pages/Cart";
 import { ShoppingCartProvider } from "./context/ShoppingCartContext";
-import Login from "./pages/Login";
-import Register from "./pages/Register";
-import PageNotFound from "./pages/PageNotFound";
-import { Dane } from "./components/Dane";
+import { Navbar } from "./components";
+import {
+  HomePage,
+  SeeAllPage,
+  ProductPage,
+  LoginPage,
+  RegisterPage,
+  PageNotFound,
+  CartPage,
+} from "./pages";
 
 function Layout() {
   return (
@@ -24,28 +26,31 @@ function App() {
       <ShoppingCartProvider>
         <Routes>
           <Route element={<Layout />}>
-            <Route path="/" element={<Dane text="mice" />} />
-            <Route path="/gaming-mice" element={<Dane text="mice" />} />
-            <Route path="/gaming-audio" element={<Dane text="audio" />} />
+            <Route path="/" element={<HomePage text="mice" />} />
+            <Route path="/gaming-mice" element={<HomePage text="mice" />} />
+            <Route path="/gaming-audio" element={<HomePage text="audio" />} />
             <Route
               path="/gaming-keyboards"
-              element={<Dane text="keyboards" />}
+              element={<HomePage text="keyboards" />}
             />
-            <Route path="/cart" element={<Cart />} />
-            <Route path="/mice" element={<SeeAll type={"mice"} />} />
-            <Route path="/audio" element={<SeeAll type={"audio"} />} />
-            <Route path="/keyboards" element={<SeeAll type={"keyboards"} />} />
+            <Route path="/cart" element={<CartPage />} />
+            <Route path="/mice" element={<SeeAllPage type={"mice"} />} />
+            <Route path="/audio" element={<SeeAllPage type={"audio"} />} />
+            <Route
+              path="/keyboards"
+              element={<SeeAllPage type={"keyboards"} />}
+            />
             <Route
               path="/accessories"
-              element={<SeeAll type={"accessories"} />}
+              element={<SeeAllPage type={"accessories"} />}
             />
-            <Route path={`/mice/:id`} element={<Product />} />
-            <Route path={`/audio/:id`} element={<Product />} />
-            <Route path={`/keyboards/:id`} element={<Product />} />
-            <Route path={`/accessories/:id`} element={<Product />} />
+            <Route path={`/mice/:id`} element={<ProductPage />} />
+            <Route path={`/audio/:id`} element={<ProductPage />} />
+            <Route path={`/keyboards/:id`} element={<ProductPage />} />
+            <Route path={`/accessories/:id`} element={<ProductPage />} />
           </Route>
-          <Route path="/login" element={<Login />} />
-          <Route path="/register" element={<Register />} />
+          <Route path="/login" element={<LoginPage />} />
+          <Route path="/register" element={<RegisterPage />} />
           <Route path="*" element={<PageNotFound />} />
         </Routes>
       </ShoppingCartProvider>

@@ -1,9 +1,9 @@
 import { useState } from "react";
-import logo from "../assets/razer-logo.png";
-import Cart from "./Cart";
 import { Link } from "react-router-dom";
-import cartIcon from "../assets/cart_icon.svg";
 import { useShoppingCart } from "../context/ShoppingCartContext";
+import logo from "../assets/razer-logo.png";
+import { Cart, NavMenu } from "../components";
+import cartIcon from "../assets/cart_icon.svg";
 
 function Navbar() {
   const [toggle, setToggle] = useState(false);
@@ -11,8 +11,8 @@ function Navbar() {
   const { cartQuantity } = useShoppingCart();
 
   return (
-    <nav className="flex justify-between items-center px-4 py-4 bg-black border-b border-[#44D62C] relative">
-      <span className="z-20" onClick={() => setToggleMenu(!toggleMenu)}>
+    <nav className="flex justify-between items-center px-4 lg:px-[9%] py-4 bg-black border-b border-[#44D62C] relative lg:sticky lg:top-0 z-10">
+      <span className="z-50" onClick={() => setToggleMenu(!toggleMenu)}>
         {toggleMenu ? (
           <svg
             xmlns="http://www.w3.org/2000/svg"
@@ -45,16 +45,16 @@ function Navbar() {
           </svg>
         )}
       </span>
-      <div className="absolute inset-0 w-full flex justify-center ">
+      <div className="absolute inset-0 w-full flex justify-center z-30">
         <Link to="/">
           <img
             src={logo}
             alt="logo"
-            className="w-[70px] h-[55px] object-contain  "
+            className="w-[70px] h-[55px] object-contain"
           />
         </Link>
       </div>
-      <span className="relative">
+      <span className={`relative z-30 ${toggleMenu ? "hidden" : ""}`}>
         <img
           id="cart-icon"
           onClick={() => setToggle((prev) => !prev)}
@@ -69,6 +69,7 @@ function Navbar() {
         )}
         <Cart toggle={toggle} setToggle={setToggle} />
       </span>
+      {toggleMenu && <NavMenu toggleMenu={toggleMenu} />}
     </nav>
   );
 }
