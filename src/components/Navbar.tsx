@@ -12,7 +12,10 @@ function Navbar() {
 
   return (
     <nav className="flex justify-between items-center px-4 lg:px-[9%] py-4 bg-black border-b border-[#44D62C] relative lg:sticky lg:top-0 z-10">
-      <span className="z-50" onClick={() => setToggleMenu(!toggleMenu)}>
+      <span
+        className="z-50 cursor-pointer"
+        onClick={() => setToggleMenu(!toggleMenu)}
+      >
         {toggleMenu ? (
           <svg
             xmlns="http://www.w3.org/2000/svg"
