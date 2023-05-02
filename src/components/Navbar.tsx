@@ -11,7 +11,7 @@ function Navbar() {
   const { cartQuantity } = useShoppingCart();
 
   return (
-    <nav className="flex justify-between items-center px-4 lg:px-[9%] py-4 bg-black border-b border-[#44D62C] relative lg:sticky lg:top-0 z-10">
+    <nav className="flex justify-between items-center px-4 lg:px-[7%] py-4 lg:py-6 bg-black border-b border-[#44D62C] relative lg:sticky lg:top-0 z-10">
       <span
         className="z-50 cursor-pointer"
         onClick={() => setToggleMenu(!toggleMenu)}
@@ -48,12 +48,12 @@ function Navbar() {
           </svg>
         )}
       </span>
-      <div className="absolute inset-0 w-full flex justify-center z-30">
+      <div className="absolute inset-0  w-full  flex items-center justify-center z-30">
         <Link to="/">
           <img
             src={logo}
             alt="logo"
-            className="w-[70px] h-[55px] object-contain"
+            className="w-[70px] lg:w-[80px] h-[55px] object-contain"
           />
         </Link>
       </div>
@@ -72,7 +72,9 @@ function Navbar() {
         )}
         <Cart toggle={toggle} setToggle={setToggle} />
       </span>
-      {toggleMenu && <NavMenu toggleMenu={toggleMenu} />}
+      {toggleMenu && (
+        <NavMenu setToggleMenu={setToggleMenu} toggleMenu={toggleMenu} />
+      )}
     </nav>
   );
 }

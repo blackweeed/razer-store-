@@ -23,10 +23,7 @@ function Product() {
   }, [id]);
 
   return (
-    <div
-      style={{ height: "calc(100vh - 62px)" }}
-      className="flex flex-col lg:flex-row lg:gap-4 mb-10 lg:mb-0"
-    >
+    <div className="flex flex-col lg:flex-row lg:gap-4 mb-10 lg:mb-0 lg:h-[calc(100vh-78px)]">
       <ProductSlider {...data} />
       <div className="lg:w-[30%] ">
         <div className="px-[1rem] mt-8 ">

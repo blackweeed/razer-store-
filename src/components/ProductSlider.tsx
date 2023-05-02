@@ -8,24 +8,24 @@ function ProductSlider({ ...data }) {
 
   function nextSlide() {
     if (slideNumber != null && data != null) {
-      const newSlideNumber = (slideNumber + 1) % data.images.length;
+      const newSlideNumber: any = (slideNumber + 1) % data.images.length;
       setNextSlideNumber(newSlideNumber);
       setTimeout(() => {
         setSlideNumber(newSlideNumber);
         setNextSlideNumber(null);
-      }, 500); // 500ms to czas trwania animacji
+      }, 400); // 500ms to czas trwania animacji
     }
   }
 
   function prevSlide() {
     if (slideNumber != null && data != null) {
-      const newSlideNumber =
+      const newSlideNumber: any =
         (slideNumber - 1 + data.images.length) % data.images.length;
       setPrevSlideNumber(newSlideNumber);
       setTimeout(() => {
         setSlideNumber(newSlideNumber);
         setPrevSlideNumber(null);
-      }, 500); // 500ms to czas trwania animacji
+      }, 400); // 500ms to czas trwania animacji
     }
   }
 
@@ -35,7 +35,7 @@ function ProductSlider({ ...data }) {
   }, [slideNumber]);
 
   return (
-    <div className="relative flex w-full overflow-hidden">
+    <div className="relative flex w-full overflow-hidden ">
       {data.images && data.images[0] && (
         <img
           className={`w-full object-cover ${

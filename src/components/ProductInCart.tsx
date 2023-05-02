@@ -31,15 +31,15 @@ function ProductInCart({ id, quantity }: CartItemProps) {
   if (item == null) return null;
 
   return (
-    <div className="px-4 py-4">
-      <div className="flex mt-4">
+    <div className="px-4 py-4 lg:flex justify-between">
+      <div className="flex lg:items-center mt-4">
         <img
-          className="w-[4.5rem] h-[4.5rem] "
+          className="w-[4.5rem] h-[4.5rem] lg:w-[9rem] lg:h-[9rem] "
           src={item.image}
           alt={item.name}
         />
         <div>
-          <h3>{item.name}</h3>
+          <h3 className="lg:text-[1.625rem]">{item.name}</h3>
           <div>
             <p
               onClick={() => setToggle((prev) => !prev)}
@@ -61,7 +61,7 @@ function ProductInCart({ id, quantity }: CartItemProps) {
           </div>
         </div>
       </div>
-      <div className="flex justify-between mt-3">
+      <div className="flex justify-between lg:items-center lg:gap-40 mt-3">
         <div className="flex gap-2 items-center justify-between ">
           <img
             onClick={() => decreaseCartQuantity(id)}
@@ -73,7 +73,7 @@ function ProductInCart({ id, quantity }: CartItemProps) {
             }
             alt=""
           />
-          <span className="w-14 h-12 border border-[#888] rounded-[4px] flex items-center justify-center">
+          <span className="w-14 h-12 lg:p-7 border border-[#777] rounded-[4px] flex items-center justify-center lg:text-[1.225rem]">
             {quantity}
           </span>
           <img
@@ -83,7 +83,7 @@ function ProductInCart({ id, quantity }: CartItemProps) {
             alt=""
           />
         </div>
-        <h3 className="text-[17px]">
+        <h3 className="text-[17px] lg:text-[1.525rem]">
           US${roundToTwoDecimalPlaces(item.price * quantity)}
         </h3>
       </div>

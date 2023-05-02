@@ -27,7 +27,7 @@ const Categories = ({ category }: Props) => {
   ];
 
   return (
-    <nav className="flex gap-2 justify-around py-10">
+    <nav className="flex gap-2 justify-around lg:justify-between py-10">
       {categories.map((activeCategory) => (
         <Link
           key={activeCategory.text}

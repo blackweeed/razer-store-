@@ -10,6 +10,7 @@ import {
   PageNotFound,
   CartPage,
 } from "./pages";
+import SearchPage from "./pages/SearchPage";
 
 function Layout() {
   return (
@@ -48,6 +49,7 @@ function App() {
             <Route path={`/audio/:id`} element={<ProductPage />} />
             <Route path={`/keyboards/:id`} element={<ProductPage />} />
             <Route path={`/accessories/:id`} element={<ProductPage />} />
+            <Route path={`/search`} element={<SearchPage />} />
           </Route>
           <Route path="/login" element={<LoginPage />} />
           <Route path="/register" element={<RegisterPage />} />

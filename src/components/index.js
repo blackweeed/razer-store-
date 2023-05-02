@@ -7,6 +7,7 @@ import Popup from "./Popup";
 import ProductInCart from "./ProductInCart";
 import ProductView from "./ProductView";
 import Selection from "./Selection";
+import Filter from "./Filter";
 
 export {
   Navbar,
@@ -18,4 +19,5 @@ export {
   ProductInCart,
   ProductView,
   Selection,
+  Filter,
 };
