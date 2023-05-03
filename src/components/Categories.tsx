@@ -24,10 +24,16 @@ const Categories = ({ category }: Props) => {
       text: "Keyboards",
       link: "gaming-keyboards",
     },
+    {
+      image:
+        "https://assets2.razerzone.com/images/pnx.assets/d3c009aecfca0d406f63fe42575891e5/razer-enki-pro_lamborghini_80x150.png",
+      text: "Chairs",
+      link: "gaming-chairs",
+    },
   ];
 
   return (
-    <nav className="flex gap-2 justify-around lg:justify-between py-10">
+    <nav className="flex gap-2 justify-around  py-10">
       {categories.map((activeCategory) => (
         <Link
           key={activeCategory.text}

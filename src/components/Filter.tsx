@@ -1,35 +1,33 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { GoChevronDown } from "react-icons/go";
-import { useNavigate } from "react-router-dom";
-import axios from "axios";
-import { Product } from "../assets/types/Product";
 
-function Filter({ color, model, category }: Product) {
-  const [data, setData] = useState<Product[]>([]);
+function Filter(props) {
+  const [filterStatus, setFilterStatus] = useState("Relevance");
   const [active, setActive] = useState(false);
-  const currentLine = data.filter((item) => item.model === model);
 
-  const navigate = useNavigate();
+  const handleFilterChange = (newFilterStatus) => {
+    setFilterStatus(newFilterStatus);
+    props.onFilterChange(newFilterStatus);
+  };
 
-  useEffect(() => {
-    const fetchData = async () => {
-      const result = await axios("http://127.0.0.1:4000/getData");
-      setData(result.data);
-    };
-    fetchData();
-  }, []);
+  const filterMenu = [
+    "Newest",
+    "Price (Low to High)",
+    "Price (High to Low)",
+    "Relevance",
+  ];
 
   return (
     <div
-      className={`pb-6 pl-2.5 relative w-[240px] border border-[#999] text-[#999] rounded-lg cursor-pointer ${
+      className={`pb-6 pl-2.5 relative w-[180px] lg:w-[210px] border border-[#999] text-[#999] rounded-lg cursor-pointer z-10 ${
         active &&
         "border-[color:var(--cx-color-primary)] text-[color:var(--cx-color-primary)] shadow"
       }`}
       onClick={() => setActive((prev) => !prev)}
     >
       <p className="legend text-[0.8rem]">Sort by</p>
-      <div className="text-white absolute inset-0 flex justify-between items-center px-5 text-[0.9rem]">
-        <p>Relevance</p>
+      <div className="text-white absolute inset-0 flex justify-between items-center px-5 text-[0.8rem] lg:text-[0.915rem]">
+        <p>{filterStatus}</p>
         <GoChevronDown
           size={25}
           fill={"#44d62c"}
@@ -40,34 +38,21 @@ function Filter({ color, model, category }: Product) {
             active ? "" : "hidden"
           }`}
         >
-          <p
-            className={`pl-4 pt-2 pb-1 cursor-pointer hover:bg-[black] rounded-lg ${
-              "" === color ? "text-white" : null
-            }`}
-          >
-            Newest
-          </p>
-          <p
-            className={`pl-4 pt-2 pb-1 cursor-pointer hover:bg-[black] rounded-lg ${
-              "" === color ? "text-white" : null
-            }`}
-          >
-            Price (Low to High)
-          </p>
-          <p
-            className={`pl-4 pt-2 pb-1 cursor-pointer hover:bg-[black] rounded-lg ${
-              "" === color ? "text-white" : null
-            }`}
-          >
-            Price (High to Low)
-          </p>
-          <p
-            className={`pl-4 pt-2 pb-1 cursor-pointer hover:bg-[black] rounded-lg ${
-              "" === color ? "text-white" : null
-            }`}
-          >
-            Relevant
-          </p>
+          {filterMenu.map((item) => {
+            return (
+              <p
+                onClick={() => {
+                  setFilterStatus(item);
+                  handleFilterChange(item);
+                }}
+                className={`pl-4 pt-2 pb-1 cursor-pointer hover:bg-[black] rounded-lg ${
+                  item === filterStatus ? "text-white" : ""
+                }`}
+              >
+                {item}
+              </p>
+            );
+          })}
         </div>
       </div>
     </div>

@@ -1,4 +1,3 @@
-import axios from "axios";
 import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 
@@ -24,7 +23,7 @@ function NavMenu({ toggleMenu, setToggleMenu }: Props) {
     };
   }, [toggleMenu]);
 
-  async function handleSearch(event) {
+  async function handleSearch(event: React.FormEvent<HTMLFormElement>) {
     event.preventDefault();
     setToggleMenu(false);
     navigate(`/search?q=${query}`);

@@ -51,7 +51,7 @@ function Cart({ toggle, setToggle }: Props) {
       id="cart"
       className={`${
         toggle ? "absolute" : "hidden"
-      } top-8 -right-2 w-[280px] h-fit bg-[#222] border-2 border-[#555] flex flex-col items-center px-4 rounded-lg text-[0.875rem] z-20`}
+      } top-8 -right-2 w-[280px] h-fit bg-[#222] border-2 border-[#555] flex flex-col items-center px-4 rounded-lg text-[0.875rem] z-30`}
     >
       {cartQuantity === 0 ? (
         <span className={`${style.border} text-center text-[#888] py-4`}>

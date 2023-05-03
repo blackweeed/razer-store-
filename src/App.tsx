@@ -34,9 +34,11 @@ function App() {
               path="/gaming-keyboards"
               element={<HomePage text="keyboards" />}
             />
+            <Route path="/gaming-chairs" element={<HomePage text="chairs" />} />
             <Route path="/cart" element={<CartPage />} />
             <Route path="/mice" element={<SeeAllPage type={"mice"} />} />
             <Route path="/audio" element={<SeeAllPage type={"audio"} />} />
+            <Route path="/chairs" element={<SeeAllPage type={"chairs"} />} />
             <Route
               path="/keyboards"
               element={<SeeAllPage type={"keyboards"} />}
@@ -49,6 +51,7 @@ function App() {
             <Route path={`/audio/:id`} element={<ProductPage />} />
             <Route path={`/keyboards/:id`} element={<ProductPage />} />
             <Route path={`/accessories/:id`} element={<ProductPage />} />
+            <Route path={`/chairs/:id`} element={<ProductPage />} />
             <Route path={`/search`} element={<SearchPage />} />
           </Route>
           <Route path="/login" element={<LoginPage />} />

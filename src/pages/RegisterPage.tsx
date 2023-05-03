@@ -18,7 +18,7 @@ function Register() {
   return (
     <>
       <NavbarLogin />
-      <div className="px-6 mt-4 flex flex-col gap-4">
+      <div className="px-6 lg:px-[30%] mt-4 flex flex-col gap-4">
         <form className="flex flex-col gap-4">
           {" "}
           <h2 className="text-xl">CREATE RAZER ACCOUNT</h2>

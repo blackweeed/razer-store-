@@ -18,7 +18,8 @@ const HomePage = ({ text }: Props) => {
     mice: "HIGH-PERFORMANCE WIRED AND WIRELESS MICE MADE FOR EVERY GAMER'S HAND",
     audio:
       "EXPLORE RAZER HEADSETS, WIRELESS HEADPHONES, EARPHONES FOR GAMING & BROADCASTING",
-    [text]: "", // Dodaj indeks dla wartości text
+    chairs:
+      "AWARD-WINNING ERGONOMICS AND COMFORT FOR COUNTLESS HOURS OF GAMING",
   };
 
   useEffect(() => {
@@ -31,8 +32,8 @@ const HomePage = ({ text }: Props) => {
   return (
     <section className="lg:px-20">
       <Categories category={text} />
-      <div className="mb-4 px-6">
-        <h1 className="text-[color:var(--cx-color-primary)] text-[2.5rem] font-semibold uppercase space tracking-tight leading-10 ">
+      <div className="mb-6 lg:mb-8 px-6">
+        <h1 className="text-[color:var(--cx-color-primary)] text-[2.5rem] font-semibold uppercase space tracking-tight leading-12 ">
           gaming {text}
         </h1>
         <p className="text-[1.3125rem] leading-none font-semibold ">

@@ -6,16 +6,36 @@ import { Product } from "../assets/types/Product";
 import { useShoppingCart } from "../context/ShoppingCartContext";
 import { Popup, Filter } from "../components";
 
+type FilterStatus = "active" | "inactive";
+
 function SearchPage() {
   const [data, setData] = useState<Product[]>([]);
   const [searchProduct, setSearchProduct] = useState("");
-  const { increaseCartQuantity } = useShoppingCart();
+  const [parentFilterStatus, setParentFilterStatus] = useState("Relevance");
   const [popup, setPopup] = useState(false);
+  const { increaseCartQuantity } = useShoppingCart();
   const navigate = useNavigate();
+
+  const handleFilterChange = (newFilterStatus: FilterStatus) => {
+    setParentFilterStatus(newFilterStatus);
+  };
+
+  function sortData(data: Product[], sortBy: string) {
+    switch (sortBy) {
+      case "Newest":
+        return data.sort(/* (a, b) => new Date(b.date) - new Date(a.date) */);
+      case "Price (Low to High)":
+        return data.sort((a, b) => a.price - b.price);
+      case "Price (High to Low)":
+        return data.sort((a, b) => b.price - a.price);
+      case "Relevance":
+      default:
+        return data;
+    }
+  }
 
   const { search } = useLocation();
   const query = new URLSearchParams(search).get("q");
-  console.log(searchProduct);
 
   useEffect(() => {});
 
@@ -27,12 +47,10 @@ function SearchPage() {
     fetchData();
   }, [query]);
 
-  function handleSearch(e) {
+  function handleSearch(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault();
     navigate(`/search?q=${searchProduct}`);
   }
-
-  console.log(searchProduct);
 
   return (
     <div>
@@ -63,19 +81,23 @@ function SearchPage() {
           </div>
         </form>
       </div>
-      <div className="flex justify-between px-[7%] py-8 text-[#888]">
+      <div className="flex justify-between items-center px-[7%] py-8 text-[#888] z-[60]">
         <p>{data.length} results</p>
-        <Filter />
+        <Filter onFilterChange={handleFilterChange} />
       </div>
       <div className="flex flex-col lg:flex-row lg:flex-wrap  justify-center gap-8 pb-20 px-6 lg:px-0 ">
-        {data?.map((item) => (
+        {sortData(data, parentFilterStatus).map((item) => (
           <div key={item._id} className="flex flex-col lg:w-[20%]">
             <div className="relative">
               <Link
                 to={`/${item.category.toLowerCase()}/${item._id}`}
                 className="bg-[#111] w-full h-full flex justify-center items-center"
               >
-                <img className="w-[80%]" src={item.image} alt="" />
+                <img
+                  className="w-[80%] hover:scale-[1.1]"
+                  src={item.image}
+                  alt=""
+                />
               </Link>
               {item.new && (
                 <div className="absolute top-0 bg-[color:var(--cx-color-primary)] text-black font-semibold px-6 py-0.5 text-[0.9rem] ">
