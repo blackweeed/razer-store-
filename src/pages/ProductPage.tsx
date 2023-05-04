@@ -23,17 +23,17 @@ function Product() {
   }, [id]);
 
   return (
-    <div className="flex flex-col lg:flex-row lg:gap-4 mb-10 lg:mb-0 lg:h-[calc(100vh-78px)]">
+    <div className="flex flex-col lg:flex-row lg:gap-4 mb-10 lg:mb-0 lg:h-[calc(100vh-64px)]">
       <ProductSlider {...data} />
       <div className="lg:w-[30%] ">
         <div className="px-[1rem] mt-8 ">
-          <h2 className="text-[1.3125rem] text-[color:var(--cx-color-primary)]">
+          <h2 className="text-[1.3125rem] lg:text-2xl text-[color:var(--cx-color-primary)]">
             {data.name} {/* {data.color && `- ${data.color}}`} */}
           </h2>
-          <h3 className="text-[.875rem] max-w-[90%] mb-2">
+          <h3 className="text-[.875rem] lg:text-base max-w-[90%] mb-2 lg:mb-3 lg:mt-0.5">
             {data.description}
           </h3>
-          <p className="text-[1.3125rem]">US${data.price}</p>
+          <p className="text-[1.3125rem] lg:text-2xl">US${data.price}</p>
           <ul className="text-[#888] list-disc ml-5 text-[.875rem] mt-[2rem] mb-10">
             {data.descriptions?.map((des: string, i: number) => (
               <li key={i}>{des}</li>
@@ -59,7 +59,7 @@ function Product() {
             />
           )}
           <button
-            className={`${style.button}`}
+            className={`${style.button} lg:text-base lg:w-full`}
             onClick={() => {
               setPopup(true);
               increaseCartQuantity(`${id}`);

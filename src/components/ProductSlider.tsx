@@ -5,6 +5,14 @@ function ProductSlider({ ...data }) {
   const [slideNumber, setSlideNumber] = useState(0);
   const [nextSlideNumber, setNextSlideNumber] = useState(null);
   const [prevSlideNumber, setPrevSlideNumber] = useState(null);
+  const [isHidden, setIsHidden] = useState(false);
+
+  const handleClick = () => {
+    setIsHidden(true);
+    setTimeout(() => {
+      setIsHidden(false);
+    }, 900);
+  };
 
   function nextSlide() {
     if (slideNumber != null && data != null) {
@@ -13,7 +21,7 @@ function ProductSlider({ ...data }) {
       setTimeout(() => {
         setSlideNumber(newSlideNumber);
         setNextSlideNumber(null);
-      }, 400); // 500ms to czas trwania animacji
+      }, 400); // 400ms to czas trwania animacji
     }
   }
 
@@ -25,7 +33,7 @@ function ProductSlider({ ...data }) {
       setTimeout(() => {
         setSlideNumber(newSlideNumber);
         setPrevSlideNumber(null);
-      }, 400); // 500ms to czas trwania animacji
+      }, 400); // 400ms to czas trwania animacji
     }
   }
 
@@ -35,7 +43,28 @@ function ProductSlider({ ...data }) {
   }, [slideNumber]);
 
   return (
-    <div className="relative flex w-full overflow-hidden ">
+    <div className="relative flex lg:w-[85%] overflow-hidden ">
+      <div
+        className={`hidden absolute top-10 left-20 lg:flex flex-col gap-4 w-40 transition duration-400 ease-in-out ${
+          isHidden ? "opacity-0 invisible" : "opacity-100 visible"
+        }`}
+      >
+        {" "}
+        {data?.images?.map((item: string, index: number) => {
+          return (
+            <img
+              onClick={() => setSlideNumber(index)}
+              key={index}
+              className={`border-2 w-full h-full cursor-pointer z-20 ${
+                index === slideNumber &&
+                "border-[color:var(--cx-color-primary)]"
+              }`}
+              src={item}
+              alt=""
+            />
+          );
+        })}
+      </div>
       {data.images && data.images[0] && (
         <img
           className={`w-full object-cover ${
@@ -51,15 +80,17 @@ function ProductSlider({ ...data }) {
       )}
       <div className="absolute inset-0 flex justify-between items-center px-2">
         <BsChevronLeft
-          className="cursor-pointer"
-          onClick={prevSlide}
-          size={26}
+          className="cursor-pointer w-7 lg:w-9 lg:h-9 h-7"
+          onClick={() => {
+            prevSlide(), handleClick();
+          }}
           fill="#44d62c"
         />
         <BsChevronRight
-          className="cursor-pointer"
-          onClick={nextSlide}
-          size={26}
+          className="cursor-pointer w-7 lg:w-9 lg:h-9  h-7"
+          onClick={() => {
+            nextSlide(), handleClick();
+          }}
           fill="#44d62c"
         />
       </div>

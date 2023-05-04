@@ -154,17 +154,23 @@ text-black font-semibold rounded-md px-8"
             </div>
             <div className="flex justify-between items-center   mt-4 pt-2 border-t border-white/20 ">
               <span className="text-[1.675rem] font-normal">Your Total</span>
-              <span className=" text-[1.675rem] leading-5 font-normal max-w-[150px]">
+              <span className="flex flex-col items-end text-[1.675rem] leading-5 font-normal max-w-[150px] lg:max-w-none ">
                 {activeCode && (
                   <p className="mb-4 text-white/60 line-through">
                     US$
-                    {discountedPrice}
+                    {totalPrice}
                   </p>
                 )}
-                <p>
+                <p className="mb-4">
                   US$
-                  {totalPrice}
+                  {discountedPrice}
                 </p>
+                {activeCode && (
+                  <p className="text-white/70 text-base  lg:text-lg">
+                    You are saving $
+                    {roundToTwoDecimalPlaces(totalPrice - discountedPrice)}!
+                  </p>
+                )}
               </span>
             </div>
           </div>

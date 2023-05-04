@@ -9,6 +9,7 @@ import {
   RegisterPage,
   PageNotFound,
   CartPage,
+  StorePage,
 } from "./pages";
 import SearchPage from "./pages/SearchPage";
 
@@ -27,7 +28,7 @@ function App() {
       <ShoppingCartProvider>
         <Routes>
           <Route element={<Layout />}>
-            <Route path="/" element={<HomePage text="mice" />} />
+            <Route path="/" element={<StorePage />} />
             <Route path="/gaming-mice" element={<HomePage text="mice" />} />
             <Route path="/gaming-audio" element={<HomePage text="audio" />} />
             <Route

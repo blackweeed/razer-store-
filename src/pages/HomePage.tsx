@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
-import { Categories, ProductView } from "../components";
+import { Categories, ProductView, Newsletter } from "../components";
 import { Product } from "../assets/types/Product";
 import axios from "axios";
 
@@ -10,6 +10,7 @@ type Props = {
 
 const HomePage = ({ text }: Props) => {
   const [data, setData] = useState<Product[]>([]);
+  const [toggleNewsletter, setToggleNewsletter] = useState(false);
   const lineArray = data.map((item) => item.line);
   const uniqueLineArr = [...new Set(lineArray)];
 
@@ -23,6 +24,14 @@ const HomePage = ({ text }: Props) => {
   };
 
   useEffect(() => {
+    const timeout = setTimeout(() => {
+      setToggleNewsletter(true);
+    }, 3000);
+
+    return () => clearTimeout(timeout);
+  }, []);
+
+  useEffect(() => {
     const fetchData = async () => {
       const result = await axios(`http://127.0.0.1:4000/${text}`);
       setData(result.data);
@@ -30,7 +39,13 @@ const HomePage = ({ text }: Props) => {
     fetchData();
   }, [text]);
   return (
-    <section className="lg:px-20">
+    <section className="lg:px-20 ">
+      {toggleNewsletter && (
+        <Newsletter
+          setToggleNewsletter={setToggleNewsletter}
+          toggleNewsletter={toggleNewsletter}
+        />
+      )}
       <Categories category={text} />
       <div className="mb-6 lg:mb-8 px-6">
         <h1 className="text-[color:var(--cx-color-primary)] text-[2.5rem] font-semibold uppercase space tracking-tight leading-12 ">

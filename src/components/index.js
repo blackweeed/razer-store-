@@ -8,8 +8,11 @@ import ProductInCart from "./ProductInCart";
 import ProductView from "./ProductView";
 import Selection from "./Selection";
 import Filter from "./Filter";
+import Newsletter from "./Newsletter";
+import HomePageProductViev from "./HomePageProductViev";
 
 export {
+  Newsletter,
   Navbar,
   Cart,
   Categories,
@@ -20,4 +23,5 @@ export {
   ProductView,
   Selection,
   Filter,
+  HomePageProductViev,
 };
