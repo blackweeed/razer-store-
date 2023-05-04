@@ -22,6 +22,11 @@ body {
   color: white;
 }
 
+button:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
 :root {
   --cx-g-color-background: #f4f4f4;
   --cx-g-color-primary: #44d62c;

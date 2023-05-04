@@ -65,7 +65,7 @@ const HomePage = ({ text }: Props) => {
                           )}
 
                           <div className="absolute bottom-4 right-0 px-3  text-[1rem] flex gap-2">
-                            {data
+                            {/*  {data
                               .filter((curItem) => curItem.model === item.model)
                               .reverse()
                               .map((color, index) => {
@@ -88,7 +88,7 @@ const HomePage = ({ text }: Props) => {
                                     />
                                   );
                                 }
-                              })}
+                              })} */}
                           </div>
                         </div>
                         <div className="px-4 pb-4 h-[200px] flex flex-col justify-between ">

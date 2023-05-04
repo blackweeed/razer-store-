@@ -8,7 +8,7 @@ import cartIcon from "../assets/cart_icon.svg";
 function Navbar() {
   const [toggle, setToggle] = useState(false);
   const [toggleMenu, setToggleMenu] = useState(false);
-  const [toggleSearchBar, setToggleSearchBar] = useState(true);
+  const [toggleSearchBar, setToggleSearchBar] = useState(false);
   const [query, setQuery] = useState("");
   const { cartQuantity } = useShoppingCart();
 

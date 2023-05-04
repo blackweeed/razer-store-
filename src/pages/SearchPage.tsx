@@ -15,6 +15,8 @@ function SearchPage() {
   const [popup, setPopup] = useState(false);
   const { increaseCartQuantity } = useShoppingCart();
   const navigate = useNavigate();
+  const { search } = useLocation();
+  const query = new URLSearchParams(search).get("q");
 
   const handleFilterChange = (newFilterStatus: FilterStatus) => {
     setParentFilterStatus(newFilterStatus);
@@ -34,9 +36,6 @@ function SearchPage() {
     }
   }
 
-  const { search } = useLocation();
-  const query = new URLSearchParams(search).get("q");
-
   useEffect(() => {});
 
   useEffect(() => {
@@ -49,6 +48,7 @@ function SearchPage() {
 
   function handleSearch(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault();
+    setSearchProduct("");
     navigate(`/search?q=${searchProduct}`);
   }
 

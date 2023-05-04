@@ -37,9 +37,7 @@ function Login() {
           </p>
           <button
             disabled={!login || !password}
-            className={`uppercase text-[#222] bg-[color:var(--cx-color-primary)]  py-2.5 rounded-sm text-sm font-medium ${
-              login && password !== "" ? "opacity-100" : "opacity-30"
-            }`}
+            className={`uppercase text-[#222] bg-[color:var(--cx-color-primary)]  py-2.5 rounded-sm text-sm font-medium `}
           >
             log in
           </button>
