@@ -29,6 +29,10 @@ function App() {
         <Routes>
           <Route element={<Layout />}>
             <Route path="/" element={<StorePage />} />
+            <Route
+              path="/all-products"
+              element={<HomePage text="equipment" />}
+            />
             <Route path="/gaming-mice" element={<HomePage text="mice" />} />
             <Route path="/gaming-audio" element={<HomePage text="audio" />} />
             <Route

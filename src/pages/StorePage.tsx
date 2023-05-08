@@ -5,6 +5,7 @@ import {
   ProductView,
   Newsletter,
   HomePageProductViev,
+  StorePageSlider,
 } from "../components";
 import { Product } from "../assets/types/Product";
 import axios from "axios";
@@ -14,18 +15,17 @@ type Props = {
   text: string;
 };
 
+/* type Learn = {
+  name: string | number;
+};
+  
+const shape = {
+  name: "aga",
+} satisfies Learn; */
+
 const StorePage = ({ text }: Props) => {
   const [data, setData] = useState<Product[]>([]);
   const [toggleNewsletter, setToggleNewsletter] = useState(false);
-  const uniqueLineArr = ["new", "exclusive "];
-
-  /*   useEffect(() => {
-    const timeout = setTimeout(() => {
-      setToggleNewsletter(true);
-    }, 3000);
-
-    return () => clearTimeout(timeout);
-  }, []); */
 
   useEffect(() => {
     const fetchData = async () => {
@@ -35,7 +35,7 @@ const StorePage = ({ text }: Props) => {
     fetchData();
   }, []);
   return (
-    <section className="lg:px-20">
+    <section>
       {toggleNewsletter && (
         <Newsletter
           setToggleNewsletter={setToggleNewsletter}
@@ -43,12 +43,12 @@ const StorePage = ({ text }: Props) => {
         />
       )}
       <Categories category={text} />
-      <div className="mb-6 lg:mb-8 px-6 flex flex-col  lg:flex-row lg:items-center  justify-between">
+      <div className="mb-6 lg:mb-8 px-6 lg:px-20 flex flex-col  lg:flex-row lg:items-center  justify-between">
         <div>
           <h1 className="text-[color:var(--cx-color-primary)] text-[2.5rem] font-semibold uppercase space tracking-tight leading-10 ">
             THE LATEST AND GREATEST GAMING GEAR
           </h1>
-          <p className="text-[1.3125rem] leading-none font-semibold my-2">
+          <p className="text-[1.3125rem] leading-none font-semibold my-2 text-white/70">
             RAZER MICE, KEYBOARDS, HEADSETS, LAPTOPS & MORE
           </p>
         </div>
@@ -66,8 +66,25 @@ const StorePage = ({ text }: Props) => {
         </button>
       </div>
       <div>
-        <ProductView brand={"FRESH OFF THE LINE"} category={"text"} />
-        <div className="container">
+        <div className="px-6 lg:px-20">
+          <div className="flex flex-col lg:flex-row justify-between items-end">
+            <div>
+              {" "}
+              <h2 className="leading-tight text-[1.8rem] font-semibold uppercase">
+                fresh off the line
+              </h2>
+              <p className="text-[1.2rem] leading-tight text-white/70">
+                Check out our latest releases to secure the most up-to-date
+                upgrades for your setup
+              </p>
+            </div>
+            <Link to={`/all-products`} className="mt-6">
+              View All{" "}
+              <span className="text-[color:var(--cx-color-primary)]">{`>`}</span>
+            </Link>
+          </div>
+        </div>
+        <div className="container lg:px-14">
           {data
             .filter((item) => item.new)
             .map((item) => (
@@ -77,38 +94,35 @@ const StorePage = ({ text }: Props) => {
             ))}
         </div>
       </div>
-      <div className="w-full h-[300px] bg-slate-50 mb-10 relative">
-        <img
-          className="w-full h-full object-cover"
-          src="https://assets2.razerzone.com/images/pnx.assets/d90c20bd9a4df3f52933b15e89306f08/chroma-1920x400_desktop.jpg"
-          alt=""
-        />
-        <div className="absolute left-[45%] bottom-3 w-4 h-4 rounded-full cursor-pointer bg-[color:var(--cx-color-primary)]"></div>
-        <div className="absolute left-[50%] bottom-3 w-4 h-4 rounded-full cursor-pointer bg-gray-300"></div>
-        <div className="absolute left-[55%] bottom-3 w-4 h-4 rounded-full cursor-pointer bg-gray-300"></div>
-        <div className="absolute inset-0 flex justify-between items-center px-6">
-          <BsChevronLeft
-            className="cursor-pointer w-7 lg:w-9 lg:h-9 h-7"
-            fill="#44d62c"
-          />
-          <BsChevronRight
-            className="cursor-pointer w-7 lg:w-9 lg:h-9  h-7"
-            fill="#44d62c"
-          />
-        </div>
-      </div>
+      <StorePageSlider />
       <div>
-        <div className="px-6 mb-6">
-          <h1 className="text-[color:var(--cx-color-primary)] text-[2.5rem] font-semibold uppercase space tracking-tight leading-10 ">
+        <div className="mb-6 lg:mb-8 px-6 lg:px-20">
+          <h1 className=" text-[color:var(--cx-color-primary)] text-[2.5rem] font-semibold uppercase space tracking-tight leading-10 ">
             ONLY AT RAZER.COM
           </h1>
           <p className="text-[1.3125rem] leading-none font-semibold my-2">
             DISCOVER EXCLUSIVE GEAR AND SERVICES FOUND NOWHERE ELSE
           </p>
         </div>
-
-        <ProductView brand={"EXCLUSIVES"} category={"text"} />
-        <div className="container">
+        <div className="px-6 lg:px-20">
+          <div className="flex flex-col lg:flex-row justify-between items-end">
+            <div>
+              {" "}
+              <h2 className="leading-tight text-[1.8rem] font-semibold uppercase">
+                RAZER EXCLUSIVES
+              </h2>
+              <p className="text-[1.2rem] leading-tight text-white/70">
+                Explore unique products only available at our official online
+                store
+              </p>
+            </div>
+            <Link to="/all-products" className="mt-6">
+              View All{" "}
+              <span className="text-[color:var(--cx-color-primary)]">{`>`}</span>
+            </Link>
+          </div>
+        </div>
+        <div className="container lg:px-14">
           {data
             .filter((item) => item.exclusive)
             .map((item) => (
@@ -118,23 +132,33 @@ const StorePage = ({ text }: Props) => {
             ))}
         </div>
       </div>
-      <div className="w-full h-[300px] bg-slate-50 mb-10 relative">
-        <img
-          className="w-full h-full object-cover"
-          src="https://assets2.razerzone.com/images/pnx.assets/d90c20bd9a4df3f52933b15e89306f08/viper-mini-signature-store-desktop.jpg"
-          alt=""
-        />
-        <div className="absolute left-[48.5%] bottom-3 w-4 h-4 rounded-full cursor-pointer bg-[color:var(--cx-color-primary)]"></div>
-        <div className="absolute left-[52.5%] bottom-3 w-4 h-4 rounded-full cursor-pointer bg-gray-300"></div>
-        <div className="absolute inset-0 flex justify-between items-center px-6">
-          <BsChevronLeft
-            className="cursor-pointer w-7 lg:w-9 lg:h-9 h-7"
-            fill="#44d62c"
-          />
-          <BsChevronRight
-            className="cursor-pointer w-7 lg:w-9 lg:h-9  h-7"
-            fill="#44d62c"
-          />
+      <StorePageSlider />
+      <div>
+        <div className="px-6 lg:px-20">
+          <div className="flex flex-col lg:flex-row justify-between items-end">
+            <div>
+              <h2 className="leading-tight text-[1.8rem] font-semibold uppercase">
+                RAZER LAST CHANCE
+              </h2>
+              <p className="text-[1.2rem] leading-tight text-white/70">
+                A curated selection of our classic gear—exclusively priced with
+                full warranty
+              </p>
+            </div>
+            <Link to="/all-products" className="mt-6">
+              View All{" "}
+              <span className="text-[color:var(--cx-color-primary)]">{`>`}</span>
+            </Link>
+          </div>
+        </div>
+        <div className="container lg:px-14">
+          {data
+            .filter((item) => item.discount)
+            .map((item) => (
+              <>
+                <HomePageProductViev {...item} />
+              </>
+            ))}
         </div>
       </div>
     </section>

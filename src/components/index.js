@@ -10,6 +10,7 @@ import Selection from "./Selection";
 import Filter from "./Filter";
 import Newsletter from "./Newsletter";
 import HomePageProductViev from "./HomePageProductViev";
+import StorePageSlider from "./StorePageSlider";
 
 export {
   Newsletter,
@@ -24,4 +25,5 @@ export {
   Selection,
   Filter,
   HomePageProductViev,
+  StorePageSlider,
 };

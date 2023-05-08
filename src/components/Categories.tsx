@@ -40,7 +40,7 @@ const Categories = ({ category }: Props) => {
           to={`/${activeCategory.link}`}
           className="flex flex-col gap-2 cursor-pointer "
         >
-          <div className="w-20 h-20">
+          <div className="w-16 h-16 lg:w-24 lg:h-24">
             <img
               className="w-full h-full object-contain"
               src={activeCategory.image}
@@ -48,7 +48,7 @@ const Categories = ({ category }: Props) => {
             />
           </div>
           <h3
-            className={`text-center ${
+            className={`text-center text-base lg:text-lg ${
               activeCategory.text.toLowerCase() === category &&
               "text-[color:var(--cx-color-primary)]"
             }`}

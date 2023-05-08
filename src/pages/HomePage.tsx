@@ -51,7 +51,7 @@ const HomePage = ({ text }: Props) => {
         <h1 className="text-[color:var(--cx-color-primary)] text-[2.5rem] font-semibold uppercase space tracking-tight leading-12 ">
           gaming {text}
         </h1>
-        <p className="text-[1.3125rem] leading-none font-semibold ">
+        <p className="text-[1.3125rem] leading-none font-semibold text-white/70">
           {categoryDescription[text]}
         </p>
       </div>
@@ -65,7 +65,7 @@ const HomePage = ({ text }: Props) => {
                   .filter((test) => test.line === line)
                   .map((item) => (
                     <div key={item._id}>
-                      <Link to={`/${text}/${item._id}`}>
+                      <Link to={`/${item.category.toLowerCase()}/${item._id}`}>
                         <div className="relative">
                           <img className="image" src={item.image} alt="" />
                           {item.new && (

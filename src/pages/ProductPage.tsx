@@ -7,6 +7,7 @@ import { Product as ProductI } from "../assets/types/Product.js";
 import axios from "axios";
 import Popup from "../components/Popup.js";
 import ProductSlider from "../components/ProductSlider.js";
+import Delivery from "../components/Delivery.js";
 
 function Product() {
   const { id } = useParams();
@@ -26,21 +27,21 @@ function Product() {
     <div className="flex flex-col lg:flex-row lg:gap-4 mb-10 lg:mb-0 lg:h-[calc(100vh-64px)]">
       <ProductSlider {...data} />
       <div className="lg:w-[30%] ">
-        <div className="px-[1rem] mt-8 ">
-          <h2 className="text-[1.3125rem] lg:text-2xl text-[color:var(--cx-color-primary)]">
+        <div className="px-[1.3rem] mt-8 ">
+          <h2 className="text-[1.475rem] lg:text-2xl text-[color:var(--cx-color-primary)]">
             {data.name} {/* {data.color && `- ${data.color}}`} */}
           </h2>
           <h3 className="text-[.875rem] lg:text-base max-w-[90%] mb-2 lg:mb-3 lg:mt-0.5">
             {data.description}
           </h3>
-          <p className="text-[1.3125rem] lg:text-2xl">US${data.price}</p>
+          <p className=" text-[1.3125rem] lg:text-2xl">US${data.price}</p>
           <ul className="text-[#888] list-disc ml-5 text-[.875rem] mt-[2rem] mb-10">
             {data.descriptions?.map((des: string, i: number) => (
               <li key={i}>{des}</li>
             ))}
           </ul>
         </div>
-        <div className="flex flex-col gap-6 px-4">
+        <div className="flex flex-col gap-6 px-[1.3rem]">
           {data.color && (
             <Selection
               color={data.color}
@@ -58,8 +59,9 @@ function Product() {
               exclusive={false}
             />
           )}
+          <Delivery />
           <button
-            className={`${style.button} lg:text-base lg:w-full`}
+            className={`${style.button} lg:text-base w-full`}
             onClick={() => {
               setPopup(true);
               increaseCartQuantity(`${id}`);

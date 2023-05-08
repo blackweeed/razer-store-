@@ -9,12 +9,12 @@ function NavbarLogin() {
   const { cartQuantity } = useShoppingCart();
 
   return (
-    <nav className="flex justify-between items-center px-4 bg-black  relative pb-12">
+    <nav className="flex justify-between items-center px-4 bg-black relative mt-2 pb-12">
       <Link to="/" className="absolute inset-0 w-full flex justify-center ">
         <img
           src={logo}
           alt="logo"
-          className="w-[70px] h-[55px] object-contain  "
+          className="w-[70px] lg:w-[84px] h-[55px] object-contain  "
         />
       </Link>
     </nav>
