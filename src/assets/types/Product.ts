@@ -16,4 +16,5 @@ export type Product = {
   line: string;
   new: boolean;
   exclusive: boolean;
+  discount: number;
 };

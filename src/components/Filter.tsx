@@ -11,7 +11,6 @@ function Filter(props) {
   };
 
   const filterMenu = [
-    "Newest",
     "Price (Low to High)",
     "Price (High to Low)",
     "Relevance",

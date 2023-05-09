@@ -5,6 +5,7 @@ import style from "../assets/style";
 import { Product } from "../assets/types/Product";
 import { useShoppingCart } from "../context/ShoppingCartContext";
 import { Popup, Filter } from "../components";
+import { roundTo99 } from "../utils/functions";
 
 type FilterStatus = "active" | "inactive";
 
@@ -24,8 +25,6 @@ function SearchPage() {
 
   function sortData(data: Product[], sortBy: string) {
     switch (sortBy) {
-      case "Newest":
-        return data.sort(/* (a, b) => new Date(b.date) - new Date(a.date) */);
       case "Price (Low to High)":
         return data.sort((a, b) => a.price - b.price);
       case "Price (High to Low)":
@@ -119,7 +118,22 @@ function SearchPage() {
               <span className="text-[color:var(--cx-color-primary)] text-[1.25rem] mb-2 hover:underline">
                 View details {">"}
               </span>
-              <span className="text-[1rem] mb-4">US${item.price}</span>
+              <div className="flex gap-2 mb-3 text-[1rem]">
+                <span>
+                  US$
+                  {roundTo99(item.price - (item.price * item.discount) / 100)}
+                </span>
+                {item.discount !== 0 && (
+                  <span
+                    className={`text-white ${
+                      item.discount !== 0 && "text-white/60 line-through"
+                    }`}
+                  >
+                    US$
+                    {item.price}
+                  </span>
+                )}
+              </div>
               <button
                 onClick={() => {
                   setPopup(true);

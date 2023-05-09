@@ -5,18 +5,23 @@ import axios from "axios";
 import style from "../assets/style";
 import ProductInCart from "../components/ProductInCart";
 import { roundToTwoDecimalPlaces } from "../utils/functions";
+import PromoCode from "../components/PromoCode";
 
 interface Product {
   _id: number;
   price: number;
+  discount: number;
+}
+interface Cupon {
+  cuponName: string;
+  discount: number;
 }
 
 function Cart() {
   const { cartItems } = useShoppingCart();
   const [data, setData] = useState<Product[]>([]);
-  const [codeQuery, setCodeQuery] = useState("");
   const [activeCode, setActiveCode] = useState("");
-  const [cupons, setCupons] = useState([
+  const [cupons, setCupons] = useState<Cupon[]>([
     {
       cuponName: "SUMMER23",
       discount: 0.2,
@@ -35,29 +40,20 @@ function Cart() {
     },
   ]);
 
-  const totalPrice = roundToTwoDecimalPlaces(
-    cartItems.reduce((total: number, cartItem) => {
-      const item = data.find((i) => i._id === cartItem.id);
-      return total + (item?.price || 0) * cartItem.quantity;
-    }, 0)
-  );
+  const totalPrice = cartItems.reduce((total: number, cartItem) => {
+    const item = data.find((i) => i._id === cartItem.id);
+    return roundToTwoDecimalPlaces(
+      total +
+        (item?.price - (item?.price * item?.discount) / 100 || 0) *
+          cartItem.quantity
+    );
+  }, 0);
+
   const discountedPrice = roundToTwoDecimalPlaces(
     totalPrice -
       (totalPrice * cupons.find((c) => c.cuponName === activeCode)?.discount ||
         0)
   );
-
-  function checkIfCode(e) {
-    e.preventDefault();
-    setCodeQuery("");
-    const cupon = cupons.find((c) => c.cuponName === codeQuery);
-    if (cupon) {
-      alert(`Your code ${cupon.cuponName} has been activated`);
-      setActiveCode(cupon.cuponName);
-    } else {
-      alert("You entered a wrong code");
-    }
-  }
 
   useEffect(() => {
     const fetchData = async () => {
@@ -103,38 +99,12 @@ function Cart() {
       )}
       {cartItems.length !== 0 && (
         <div className="flex gap-6 flex-col lg:flex-row  px-4 lg:px-[9%] py-6 ">
-          <div className="flex-1">
-            <h2 className="text-[color:var(--cx-color-primary)] text-[1.125rem]">
-              Have a promo code?
-            </h2>
-            <div className="mt-2">
-              <form onSubmit={checkIfCode} className="flex gap-4 ">
-                <input
-                  value={codeQuery}
-                  maxLength={8}
-                  onChange={(e) => setCodeQuery(e.target.value)}
-                  className="bg-black border border-white/50 px-2 py-3  w-full lg:w-[60%] rounded-md focus:border-[color:var(--cx-color-primary)] focus:border-2 focus:outline-none	"
-                  type="text"
-                />
-                <button
-                  disabled={activeCode ? true : false}
-                  type="submit"
-                  className="bg-[color:var(--cx-color-primary)] 
-text-black font-semibold rounded-md px-8"
-                >
-                  Apply
-                </button>
-              </form>
-              {activeCode && (
-                <p className="text-lg text-white/80 mt-2 underline">
-                  Discount applied{" "}
-                  {cupons.find((c) => c.cuponName === activeCode)?.discount *
-                    100}
-                  %
-                </p>
-              )}
-            </div>
-          </div>
+          <PromoCode
+            cupons={cupons}
+            setCupons={setCupons}
+            activeCode={activeCode}
+            setActiveCode={setActiveCode}
+          />
           <div className="flex-1">
             <div className="flex justify-between ">
               <div>
@@ -152,21 +122,22 @@ text-black font-semibold rounded-md px-8"
                 Calculated after address entry
               </h4>
             </div>
-            <div className="flex justify-between items-center   mt-4 pt-2 border-t border-white/20 ">
-              <span className="text-[1.675rem] font-normal">Your Total</span>
-              <span className="flex flex-col items-end text-[1.675rem] leading-5 font-normal max-w-[150px] lg:max-w-none ">
+            <div className="flex justify-between items-center mt-4 pt-2 border-t border-white/20 ">
+              <span className="text-[1.575rem] font-normal">Your Total</span>
+              <span className="flex flex-col gap-4 items-end text-[1.575rem] leading-5 font-normal max-w-[300px] lg:max-w-none ">
                 {activeCode && (
-                  <p className="mb-4 text-white/60 line-through">
+                  <p className="text-white/60 line-through">
                     US$
                     {totalPrice}
                   </p>
                 )}
-                <p className="mb-4">
+                <p>
                   US$
                   {discountedPrice}
                 </p>
                 {activeCode && (
-                  <p className="text-white/70 text-base  lg:text-lg">
+                  <p className="text-white/70 text-base lg:text-lg">
+                    {" "}
                     You are saving $
                     {roundToTwoDecimalPlaces(totalPrice - discountedPrice)}!
                   </p>

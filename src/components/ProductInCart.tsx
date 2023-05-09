@@ -3,15 +3,12 @@ import { FiChevronDown } from "react-icons/fi";
 import { useShoppingCart } from "../context/ShoppingCartContext";
 import { Product } from "../assets/types/Product";
 import axios from "axios";
+import { roundTo99, roundToTwoDecimalPlaces } from "../utils/functions";
 
 type CartItemProps = {
   id: number;
   quantity: number;
 };
-
-function roundToTwoDecimalPlaces(number: number): number {
-  return Math.round(number * 100) / 100;
-}
 
 function ProductInCart({ id, quantity }: CartItemProps) {
   const [data, setData] = useState<Product[]>([]);
@@ -61,7 +58,7 @@ function ProductInCart({ id, quantity }: CartItemProps) {
           </div>
         </div>
       </div>
-      <div className="flex justify-between lg:items-center lg:gap-40 mt-3 lg:w-[400px]">
+      <div className="flex justify-between lg:items-center lg:gap-40 mt-3 lg:w-[500px]">
         <div className="flex gap-2 items-center justify-between ">
           <img
             onClick={() => decreaseCartQuantity(id)}
@@ -83,9 +80,25 @@ function ProductInCart({ id, quantity }: CartItemProps) {
             alt=""
           />
         </div>
-        <h3 className="text-[17px] lg:text-[1.525rem] ">
-          US${roundToTwoDecimalPlaces(item.price * quantity)}
-        </h3>
+        <div className="text-[17px] lg:text-[1.525rem] flex flex-col items-end">
+          {item.discount !== 0 ? (
+            <>
+              <span>
+                US$
+                {roundToTwoDecimalPlaces(
+                  item.price * quantity -
+                    (item.price * quantity * item.discount) / 100
+                )}
+              </span>
+              <span className="text-base text-white/60 line-through">
+                US${roundToTwoDecimalPlaces(item.price * quantity)}{" "}
+                {roundToTwoDecimalPlaces(item.discount)}% off
+              </span>
+            </>
+          ) : (
+            <span>US${roundToTwoDecimalPlaces(item.price * quantity)}</span>
+          )}
+        </div>
       </div>
     </div>
   );

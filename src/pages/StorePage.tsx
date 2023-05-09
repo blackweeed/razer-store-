@@ -2,14 +2,12 @@ import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import {
   Categories,
-  ProductView,
   Newsletter,
   HomePageProductViev,
   StorePageSlider,
 } from "../components";
 import { Product } from "../assets/types/Product";
 import axios from "axios";
-import { BsChevronLeft, BsChevronRight } from "react-icons/bs";
 
 type Props = {
   text: string;
@@ -22,6 +20,55 @@ type Props = {
 const shape = {
   name: "aga",
 } satisfies Learn; */
+
+const images = [
+  {
+    image:
+      "https://assets2.razerzone.com/images/pnx.assets/d90c20bd9a4df3f52933b15e89306f08/chroma-1920x400_desktop.jpg",
+    header: "viva la chroma",
+    paragraph: "Light It Up With Exclusive Offer",
+    button: "Shop now",
+  },
+  {
+    image:
+      "https://assets2.razerzone.com/images/pnx.assets/d90c20bd9a4df3f52933b15e89306f08/1920x400-(12).jpg",
+    header: "LIGHT UP YOUr deskop",
+    paragraph: "RAZERSTORE REWARDS GIVEAWAY",
+    button: "Join now",
+  },
+  {
+    image:
+      "https://assets2.razerzone.com/images/pnx.assets/cc58ab7cef605b2c53a7f5d0c61c2eff/esportsevergreen-catbnr-desktop-400px.jpg",
+    header: "GEAR UP FOR GLORY",
+    paragraph: "Esports Showdown Specials",
+    button: "Shop Exclusive Deals",
+  },
+];
+const images2 = [
+  {
+    image:
+      "https://assets2.razerzone.com/images/pnx.assets/d90c20bd9a4df3f52933b15e89306f08/viper-mini-signature-store-desktop.jpg",
+    header: "RAZER VIPER MINI SIGNATURE EDITION",
+    paragraph: "The best lightweight performance gaming mouse",
+    button: "Learn more",
+  },
+  {
+    image:
+      "https://assets2.razerzone.com/images/pnx.assets/3ab06c5a17df1ec96d6616f360e65e43/razer-refurbished-laptops_desktop_1920x400.jpg",
+    header: "Razer Certified Refurbished Products",
+    paragraph:
+      "Reborn and battle-ready, our restored products are indistinguishable from their brand-new counterparts and come outfitted with special savings that are second to none.",
+    button: "Shop All Refurbished Products",
+  },
+  {
+    image:
+      "https://assets2.razerzone.com/images/pnx.assets/8e59bf4756003c288c33ed287d3371bc/1920x400-(3).jpg",
+    header: "Razer laptop skins",
+    paragraph:
+      "Crafted with customized 3M cast vinyl for extreme durability and fused with cutting-edge adhesive technologies for an ultra-precise fit, our skins are decked out in an array of striking designs to express your personal style.",
+    button: "Choose your style",
+  },
+];
 
 const StorePage = ({ text }: Props) => {
   const [data, setData] = useState<Product[]>([]);
@@ -43,7 +90,7 @@ const StorePage = ({ text }: Props) => {
         />
       )}
       <Categories category={text} />
-      <div className="mb-6 lg:mb-8 px-6 lg:px-20 flex flex-col  lg:flex-row lg:items-center  justify-between">
+      <div className="mb-6 lg:mb-8 px-6 lg:px-[7%] flex flex-col  lg:flex-row lg:items-center  justify-between">
         <div>
           <h1 className="text-[color:var(--cx-color-primary)] text-[2.5rem] font-semibold uppercase space tracking-tight leading-10 ">
             THE LATEST AND GREATEST GAMING GEAR
@@ -66,7 +113,7 @@ const StorePage = ({ text }: Props) => {
         </button>
       </div>
       <div>
-        <div className="px-6 lg:px-20">
+        <div className="px-6 lg:px-[7%]">
           <div className="flex flex-col lg:flex-row justify-between items-end">
             <div>
               {" "}
@@ -84,19 +131,17 @@ const StorePage = ({ text }: Props) => {
             </Link>
           </div>
         </div>
-        <div className="container lg:px-14">
+        <div className="container lg:px-20">
           {data
             .filter((item) => item.new)
             .map((item) => (
-              <>
-                <HomePageProductViev {...item} detail={"exclusive"} />
-              </>
+              <HomePageProductViev {...item} detail={"exclusive"} />
             ))}
         </div>
       </div>
-      <StorePageSlider />
+      <StorePageSlider images={images} />
       <div>
-        <div className="mb-6 lg:mb-8 px-6 lg:px-20">
+        <div className="mb-6 lg:mb-8 px-6 lg:px-[7%]">
           <h1 className=" text-[color:var(--cx-color-primary)] text-[2.5rem] font-semibold uppercase space tracking-tight leading-10 ">
             ONLY AT RAZER.COM
           </h1>
@@ -104,7 +149,7 @@ const StorePage = ({ text }: Props) => {
             DISCOVER EXCLUSIVE GEAR AND SERVICES FOUND NOWHERE ELSE
           </p>
         </div>
-        <div className="px-6 lg:px-20">
+        <div className="px-6 lg:px-[7%]">
           <div className="flex flex-col lg:flex-row justify-between items-end">
             <div>
               {" "}
@@ -122,7 +167,7 @@ const StorePage = ({ text }: Props) => {
             </Link>
           </div>
         </div>
-        <div className="container lg:px-14">
+        <div className="container lg:px-20">
           {data
             .filter((item) => item.exclusive)
             .map((item) => (
@@ -132,9 +177,9 @@ const StorePage = ({ text }: Props) => {
             ))}
         </div>
       </div>
-      <StorePageSlider />
+      <StorePageSlider images={images2} />
       <div>
-        <div className="px-6 lg:px-20">
+        <div className="px-6 lg:px-[7%]">
           <div className="flex flex-col lg:flex-row justify-between items-end">
             <div>
               <h2 className="leading-tight text-[1.8rem] font-semibold uppercase">
@@ -151,7 +196,7 @@ const StorePage = ({ text }: Props) => {
             </Link>
           </div>
         </div>
-        <div className="container lg:px-14">
+        <div className="container lg:px-20">
           {data
             .filter((item) => item.discount)
             .map((item) => (

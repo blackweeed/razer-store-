@@ -8,6 +8,7 @@ import axios from "axios";
 import Popup from "../components/Popup.js";
 import ProductSlider from "../components/ProductSlider.js";
 import Delivery from "../components/Delivery.js";
+import { roundTo99 } from "../utils/functions.js";
 
 function Product() {
   const { id } = useParams();
@@ -34,7 +35,17 @@ function Product() {
           <h3 className="text-[.875rem] lg:text-base max-w-[90%] mb-2 lg:mb-3 lg:mt-0.5">
             {data.description}
           </h3>
-          <p className=" text-[1.3125rem] lg:text-2xl">US${data.price}</p>
+          <p className=" text-[1.3125rem] lg:text-[1.375rem] ">
+            US${roundTo99(data.price - (data.price * data.discount) / 100)}{" "}
+            {data.discount !== 0 && (
+              <>
+                <span className="text-white/60 line-through">
+                  US${data.price}
+                </span>
+                <p className="inline text-white/60"> ({data.discount}% off)</p>
+              </>
+            )}
+          </p>
           <ul className="text-[#888] list-disc ml-5 text-[.875rem] mt-[2rem] mb-10">
             {data.descriptions?.map((des: string, i: number) => (
               <li key={i}>{des}</li>
@@ -57,6 +68,7 @@ function Product() {
               line={""}
               new={false}
               exclusive={false}
+              discount={data.discount}
             />
           )}
           <Delivery />

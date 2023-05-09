@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import { roundToTwoDecimalPlaces } from "../utils/functions";
+import { roundTo99 } from "../utils/functions";
 
 function HomePageProductViev({ ...item }) {
   return (
@@ -34,21 +34,19 @@ function HomePageProductViev({ ...item }) {
           </div>
           <div className="flex items-center justify-between">
             <div className="flex flex-col text-[1rem]">
-              <span
-                className={`text-white ${
-                  item.discount !== 0 && "text-white/60 line-through"
-                }`}
-              >
-                US${item.price}
-              </span>
               {item.discount !== 0 && (
-                <span>
+                <span
+                  className={`text-white ${
+                    item.discount !== 0 && "text-white/60 line-through"
+                  }`}
+                >
                   US$
-                  {roundToTwoDecimalPlaces(
-                    item.price - (item.price * item.discount) / 100
-                  )}
+                  {item.price}
                 </span>
               )}
+              <span>
+                US${roundTo99(item.price - (item.price * item.discount) / 100)}
+              </span>
             </div>
             <button className="text-[1rem] bg-[color:var(--cx-color-primary)] text-black px-2.5 font-semibold rounded-md">
               BUY
