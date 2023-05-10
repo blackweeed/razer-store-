@@ -8,7 +8,7 @@ import axios from "axios";
 import Popup from "../components/Popup.js";
 import ProductSlider from "../components/ProductSlider.js";
 import Delivery from "../components/Delivery.js";
-import { roundTo99 } from "../utils/functions.js";
+import { roundToTwoDecimalPlaces } from "../utils/functions.js";
 
 function Product() {
   const { id } = useParams();
@@ -36,7 +36,10 @@ function Product() {
             {data.description}
           </h3>
           <p className=" text-[1.3125rem] lg:text-[1.375rem] ">
-            US${roundTo99(data.price - (data.price * data.discount) / 100)}{" "}
+            US$
+            {roundToTwoDecimalPlaces(
+              data.price - (data.price * data.discount) / 100
+            )}{" "}
             {data.discount !== 0 && (
               <>
                 <span className="text-white/60 line-through">

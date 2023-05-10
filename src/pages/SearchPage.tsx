@@ -5,7 +5,7 @@ import style from "../assets/style";
 import { Product } from "../assets/types/Product";
 import { useShoppingCart } from "../context/ShoppingCartContext";
 import { Popup, Filter } from "../components";
-import { roundTo99 } from "../utils/functions";
+import { roundToTwoDecimalPlaces } from "../utils/functions";
 
 type FilterStatus = "active" | "inactive";
 
@@ -121,7 +121,9 @@ function SearchPage() {
               <div className="flex gap-2 mb-3 text-[1rem]">
                 <span>
                   US$
-                  {roundTo99(item.price - (item.price * item.discount) / 100)}
+                  {roundToTwoDecimalPlaces(
+                    item.price - (item.price * item.discount) / 100
+                  )}
                 </span>
                 {item.discount !== 0 && (
                   <span

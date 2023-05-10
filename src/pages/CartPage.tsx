@@ -40,7 +40,7 @@ function Cart() {
     },
   ]);
 
-  const totalPrice = cartItems.reduce((total: number, cartItem) => {
+  /*  const totalPrice = cartItems.reduce((total: number, cartItem) => {
     const item = data.find((i) => i._id === cartItem.id);
     return roundToTwoDecimalPlaces(
       total +
@@ -48,11 +48,21 @@ function Cart() {
           cartItem.quantity
     );
   }, 0);
+ */
+
+  const totalPrice = cartItems.reduce((total: number, cartItem) => {
+    const item = data.find((i) => i._id === cartItem.id);
+    const price = item?.price ?? 0;
+    const discount = item?.discount ?? 0;
+    return roundToTwoDecimalPlaces(
+      total + (price - (price * discount) / 100) * cartItem.quantity
+    );
+  }, 0);
 
   const discountedPrice = roundToTwoDecimalPlaces(
     totalPrice -
-      (totalPrice * cupons.find((c) => c.cuponName === activeCode)?.discount ||
-        0)
+      totalPrice *
+        (cupons.find((c) => c.cuponName === activeCode)?.discount || 0)
   );
 
   useEffect(() => {

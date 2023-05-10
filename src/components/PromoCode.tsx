@@ -1,15 +1,21 @@
 import { useState } from "react";
 
-type Props = {
-  activeCode: string;
-  cupons: string;
-  setActiveCode: (param: boolean) => void;
-};
+interface Cupon {
+  cuponName: string;
+  discount: number;
+}
 
-function PromoCode({ activeCode, setActiveCode, cupons }: Props) {
+interface PromoCodeProps {
+  cupons: Cupon[];
+  setCupons: React.Dispatch<React.SetStateAction<Cupon[]>>;
+  activeCode: string;
+  setActiveCode: React.Dispatch<React.SetStateAction<string>>;
+}
+
+function PromoCode({ activeCode, setActiveCode, cupons }: PromoCodeProps) {
   const [codeQuery, setCodeQuery] = useState("");
 
-  function checkIfCode(e) {
+  function checkIfCode(e: React.MouseEvent<HTMLFormElement, MouseEvent>) {
     e.preventDefault();
     setCodeQuery("");
     const cupon = cupons.find((c) => c.cuponName === codeQuery);
@@ -56,7 +62,10 @@ function PromoCode({ activeCode, setActiveCode, cupons }: Props) {
         {activeCode && (
           <p className="text-lg text-white/80 mt-2 underline">
             Discount applied{" "}
-            {cupons.find((c) => c.cuponName === activeCode)?.discount * 100}%
+            {cupons.find((c) => c.cuponName === activeCode)?.discount
+              ? cupons.find((c) => c.cuponName === activeCode)!.discount * 100
+              : 0}
+            %
           </p>
         )}
       </div>
