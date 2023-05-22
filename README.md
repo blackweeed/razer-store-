@@ -7,6 +7,7 @@
 <h3>Build with:</h3>
 
 » React <br>
+» Typescript <br>
 » Tailwind Css <br>
 » Node Js <br>
 » Express js <br>
