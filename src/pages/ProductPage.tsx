@@ -18,7 +18,7 @@ function Product() {
 
   useEffect(() => {
     const fetchData = async () => {
-      const result = await axios(`http://127.0.0.1:4000/getData/${id}`);
+      const result = await axios(`${process.env.API_URL}/getData/${id}`);
       setData(result.data);
     };
     fetchData();

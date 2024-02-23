@@ -18,7 +18,7 @@ function SeeAll({ type }: Props) {
 
   useEffect(() => {
     const fetchData = async () => {
-      const result = await axios(`http://95.216.72.49:20387/${type}`);
+      const result = await axios(`${process.env.API_URL}/${type}`);
       setData(result.data);
     };
     fetchData();

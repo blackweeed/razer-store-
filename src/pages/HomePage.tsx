@@ -33,7 +33,7 @@ const HomePage = ({ text }: Props) => {
 
   useEffect(() => {
     const fetchData = async () => {
-      const result = await axios(`http://95.216.72.49:20387/${text}`);
+      const result = await axios(`${process.env.API_URL}/${text}`);
       setData(result.data);
     };
     fetchData();

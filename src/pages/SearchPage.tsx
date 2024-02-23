@@ -39,7 +39,7 @@ function SearchPage() {
 
   useEffect(() => {
     const fetchData = async () => {
-      const result = await axios(`http://127.0.0.1:4000/products?q=${query}`);
+      const result = await axios(`${process.env.API_URL}/products?q=${query}`);
       setData(result.data);
     };
     fetchData();
