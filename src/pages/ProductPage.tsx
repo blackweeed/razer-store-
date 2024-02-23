@@ -18,7 +18,9 @@ function Product() {
 
   useEffect(() => {
     const fetchData = async () => {
-      const result = await axios(`https://razer-store.cytr.us/getData/${id}`);
+      const result = await axios(
+        `${import.meta.env.VITE_API_URL}/getData/${id}`
+      );
       setData(result.data);
     };
     fetchData();

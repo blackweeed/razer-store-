@@ -76,7 +76,7 @@ const StorePage = ({ text }: Props) => {
 
   useEffect(() => {
     const fetchData = async () => {
-      const result = await axios(`https://razer-store.cytr.us/getData`);
+      const result = await axios(`${import.meta.env.VITE_API_URL}/getData`);
       setData(result.data);
     };
     fetchData();
@@ -125,7 +125,7 @@ const StorePage = ({ text }: Props) => {
                 upgrades for your setup
               </p>
             </div>
-            <Link to={`/all-products`} className="mt-6">
+            <Link to={`/gaming-mice`} className="mt-6">
               View All{" "}
               <span className="text-[color:var(--cx-color-primary)]">{`>`}</span>
             </Link>
@@ -161,7 +161,7 @@ const StorePage = ({ text }: Props) => {
                 store
               </p>
             </div>
-            <Link to="/all-products" className="mt-6">
+            <Link to="/audio" className="mt-6">
               View All{" "}
               <span className="text-[color:var(--cx-color-primary)]">{`>`}</span>
             </Link>
@@ -190,7 +190,7 @@ const StorePage = ({ text }: Props) => {
                 full warranty
               </p>
             </div>
-            <Link to="/all-products" className="mt-6">
+            <Link to="/keyboards" className="mt-6">
               View All{" "}
               <span className="text-[color:var(--cx-color-primary)]">{`>`}</span>
             </Link>

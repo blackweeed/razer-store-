@@ -13,7 +13,7 @@ function Selection({ color, model, category }: Product) {
 
   useEffect(() => {
     const fetchData = async () => {
-      const result = await axios("http://127.0.0.1:4000/getData");
+      const result = await axios("https://razer-store.cytr.us/getData");
       setData(result.data);
     };
     fetchData();

@@ -67,7 +67,7 @@ function Cart() {
 
   useEffect(() => {
     const fetchData = async () => {
-      const result = await axios(`https://razer-store.cytr.us/getData`);
+      const result = await axios(`${import.meta.env.VITE_API_URL}/getData`);
       setData(result.data);
     };
     fetchData();

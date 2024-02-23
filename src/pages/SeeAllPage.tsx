@@ -18,7 +18,7 @@ function SeeAll({ type }: Props) {
 
   useEffect(() => {
     const fetchData = async () => {
-      const result = await axios(`https://razer-store.cytr.us/${type}`);
+      const result = await axios(`${import.meta.env.VITE_API_URL}/${type}`);
       setData(result.data);
     };
     fetchData();
