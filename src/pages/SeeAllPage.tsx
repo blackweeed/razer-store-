@@ -18,7 +18,7 @@ function SeeAll({ type }: Props) {
 
   useEffect(() => {
     const fetchData = async () => {
-      const result = await axios(`${process.env.API_URL}/${type}`);
+      const result = await axios(`https://razer-store.cytr.us/${type}`);
       setData(result.data);
     };
     fetchData();

@@ -39,7 +39,9 @@ function SearchPage() {
 
   useEffect(() => {
     const fetchData = async () => {
-      const result = await axios(`${process.env.API_URL}/products?q=${query}`);
+      const result = await axios(
+        `https://razer-store.cytr.us/products?q=${query}`
+      );
       setData(result.data);
     };
     fetchData();

@@ -76,7 +76,7 @@ const StorePage = ({ text }: Props) => {
 
   useEffect(() => {
     const fetchData = async () => {
-      const result = await axios(`${process.env.API_URL}/getData`);
+      const result = await axios(`https://razer-store.cytr.us/getData`);
       setData(result.data);
     };
     fetchData();

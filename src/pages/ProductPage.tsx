@@ -18,7 +18,7 @@ function Product() {
 
   useEffect(() => {
     const fetchData = async () => {
-      const result = await axios(`${process.env.API_URL}/getData/${id}`);
+      const result = await axios(`https://razer-store.cytr.us/getData/${id}`);
       setData(result.data);
     };
     fetchData();

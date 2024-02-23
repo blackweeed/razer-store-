@@ -33,7 +33,7 @@ const HomePage = ({ text }: Props) => {
 
   useEffect(() => {
     const fetchData = async () => {
-      const result = await axios(`https://razer-store.cytr.us/${text}`);
+      const result = await axios(`https://razer-store.cytr.us${text}`);
       setData(result.data);
     };
     fetchData();
