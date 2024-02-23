@@ -33,7 +33,7 @@ const HomePage = ({ text }: Props) => {
 
   useEffect(() => {
     const fetchData = async () => {
-      const result = await axios(`http://127.0.0.1:4000/${text}`);
+      const result = await axios(`http://95.216.72.49:20387/${text}`);
       setData(result.data);
     };
     fetchData();

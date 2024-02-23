@@ -18,7 +18,7 @@ function SeeAll({ type }: Props) {
 
   useEffect(() => {
     const fetchData = async () => {
-      const result = await axios(`http://127.0.0.1:4000/${type}`);
+      const result = await axios(`http://95.216.72.49:20387/${type}`);
       setData(result.data);
     };
     fetchData();
