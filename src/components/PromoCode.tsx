@@ -40,7 +40,8 @@ function PromoCode({ activeCode, setActiveCode, cupons }: PromoCodeProps) {
   return (
     <div className="flex-1">
       <h2 className="text-[color:var(--cx-color-primary)] text-[1.125rem]">
-        Have a promo code?
+        Have a promo code?{" "}
+        <span className="opacity-40 text-sm">'SAMPLE: SPRING24'</span>
       </h2>
       <div className="mt-2">
         <form onSubmit={checkIfCode} className="flex gap-4 ">

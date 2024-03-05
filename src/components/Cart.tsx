@@ -16,7 +16,7 @@ function Cart({ toggle, setToggle }: Props) {
 
   useEffect(() => {
     const fetchData = async () => {
-      const result = await axios(`http://127.0.0.1:4000/getData`);
+      const result = await axios(`${import.meta.env.VITE_API_URL}/getData`);
       setData(result.data);
     };
     fetchData();
@@ -26,7 +26,6 @@ function Cart({ toggle, setToggle }: Props) {
     const handleClickOutside = (event: any) => {
       const cart = document.getElementById("cart");
 
-      // If the clicked element is the cart icon or its child elements, do nothing
       if (
         event.target.id === "cart-icon" ||
         event.target.closest("#cart-icon") !== null
@@ -34,7 +33,6 @@ function Cart({ toggle, setToggle }: Props) {
         return;
       }
 
-      // If the cart element exists and the clicked element is outside of it, close the cart
       if (cart && !cart.contains(event.target)) {
         setToggle(false);
       }
@@ -100,7 +98,7 @@ function Cart({ toggle, setToggle }: Props) {
         onClick={() => setToggle(false)}
         className={`${style.border} flex items-center gap-5 cursor-pointer hover:text-[#44D62C] test:hover group`}
       >
-        <p className="elo before:bg-[url('../assets/cart_icon.svg')] before:group-hover:bg-[url('../assets/cart_icon-hover.svg')]">
+        <p className="cart-icon before:bg-[url('../assets/cart_icon.svg')] before:group-hover:bg-[url('../assets/cart_icon-hover.svg')]">
           Cart {cartQuantity > 0 && `(${cartQuantity})`}
         </p>
       </Link>
@@ -108,7 +106,7 @@ function Cart({ toggle, setToggle }: Props) {
         className={`${style.border} flex items-center gap-5 cursor-pointer hover:text-[#44D62C] group`}
       >
         {" "}
-        <p className="elo elo1 before:bg-[url('../assets/orders_icon.svg')] before:group-hover:bg-[url('../assets/orders_icon_hover.svg')] ">
+        <p className="cart-icon cart-order before:bg-[url('../assets/orders_icon.svg')] before:group-hover:bg-[url('../assets/orders_icon_hover.svg')] ">
           Orders
         </p>
       </span>
@@ -116,7 +114,7 @@ function Cart({ toggle, setToggle }: Props) {
         className={`${style.border} flex items-center gap-5 cursor-pointer hover:text-[#44D62C] group`}
       >
         {" "}
-        <p className="elo elo1 before:bg-[url('../assets/account_icon.svg')] before:group-hover:bg-[url('../assets/account_icon-hover.svg')]">
+        <p className="cart-icon cart-order before:bg-[url('../assets/account_icon.svg')] before:group-hover:bg-[url('../assets/account_icon-hover.svg')]">
           Account
         </p>
       </span>
@@ -124,7 +122,7 @@ function Cart({ toggle, setToggle }: Props) {
         className={`${style.border} flex items-center gap-5 cursor-pointer hover:text-[#44D62C] group`}
       >
         {" "}
-        <p className="elo elo1 before:bg-[url('../assets/RazerStore_Rewards_icon.svg')] before:group-hover:bg-[url('../assets/RazerStore_Rewards_icon_hover.svg')]">
+        <p className="cart-icon cart-order before:bg-[url('../assets/RazerStore_Rewards_icon.svg')] before:group-hover:bg-[url('../assets/RazerStore_Rewards_icon_hover.svg')]">
           RazerStore Rewards
         </p>
       </span>
@@ -133,7 +131,7 @@ function Cart({ toggle, setToggle }: Props) {
         className={`${style.border} border-none flex items-center gap-5 cursor-pointer hover:text-[#44D62C] group`}
       >
         {" "}
-        <p className="elo elo1 before:bg-[url('../assets/signin_icon.svg')] before:group-hover:bg-[url('../assets/signin_icon_hover.svg')]">
+        <p className="cart-icon cart-order before:bg-[url('../assets/signin_icon.svg')] before:group-hover:bg-[url('../assets/signin_icon_hover.svg')]">
           Log In
         </p>
       </Link>

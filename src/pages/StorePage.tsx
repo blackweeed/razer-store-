@@ -8,67 +8,11 @@ import {
 } from "../components";
 import { Product } from "../assets/types/Product";
 import axios from "axios";
+import { images, images2 } from "../constants";
 
 type Props = {
   text: string;
 };
-
-/* type Learn = {
-  name: string | number;
-};
-  
-const shape = {
-  name: "aga",
-} satisfies Learn; */
-
-const images = [
-  {
-    image:
-      "https://assets2.razerzone.com/images/pnx.assets/d90c20bd9a4df3f52933b15e89306f08/chroma-1920x400_desktop.jpg",
-    header: "viva la chroma",
-    paragraph: "Light It Up With Exclusive Offer",
-    button: "Shop now",
-  },
-  {
-    image:
-      "https://assets2.razerzone.com/images/pnx.assets/d90c20bd9a4df3f52933b15e89306f08/1920x400-(12).jpg",
-    header: "LIGHT UP YOUr deskop",
-    paragraph: "RAZERSTORE REWARDS GIVEAWAY",
-    button: "Join now",
-  },
-  {
-    image:
-      "https://assets2.razerzone.com/images/pnx.assets/cc58ab7cef605b2c53a7f5d0c61c2eff/esportsevergreen-catbnr-desktop-400px.jpg",
-    header: "GEAR UP FOR GLORY",
-    paragraph: "Esports Showdown Specials",
-    button: "Shop Exclusive Deals",
-  },
-];
-const images2 = [
-  {
-    image:
-      "https://assets2.razerzone.com/images/pnx.assets/d90c20bd9a4df3f52933b15e89306f08/viper-mini-signature-store-desktop.jpg",
-    header: "RAZER VIPER MINI SIGNATURE EDITION",
-    paragraph: "The best lightweight performance gaming mouse",
-    button: "Learn more",
-  },
-  {
-    image:
-      "https://assets2.razerzone.com/images/pnx.assets/3ab06c5a17df1ec96d6616f360e65e43/razer-refurbished-laptops_desktop_1920x400.jpg",
-    header: "Razer Certified Refurbished Products",
-    paragraph:
-      "Reborn and battle-ready, our restored products are indistinguishable from their brand-new counterparts and come outfitted with special savings that are second to none.",
-    button: "Shop All Refurbished Products",
-  },
-  {
-    image:
-      "https://assets2.razerzone.com/images/pnx.assets/8e59bf4756003c288c33ed287d3371bc/1920x400-(3).jpg",
-    header: "Razer laptop skins",
-    paragraph:
-      "Crafted with customized 3M cast vinyl for extreme durability and fused with cutting-edge adhesive technologies for an ultra-precise fit, our skins are decked out in an array of striking designs to express your personal style.",
-    button: "Choose your style",
-  },
-];
 
 const StorePage = ({ text }: Props) => {
   const [data, setData] = useState<Product[]>([]);

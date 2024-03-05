@@ -21,7 +21,7 @@ function ProductSlider({ ...data }) {
       setTimeout(() => {
         setSlideNumber(newSlideNumber);
         setNextSlideNumber(null);
-      }, 400); // 400ms to czas trwania animacji
+      }, 400); // 400ms is a animation duration time
     }
   }
 
@@ -33,7 +33,7 @@ function ProductSlider({ ...data }) {
       setTimeout(() => {
         setSlideNumber(newSlideNumber);
         setPrevSlideNumber(null);
-      }, 400); // 400ms to czas trwania animacji
+      }, 400);
     }
   }
 

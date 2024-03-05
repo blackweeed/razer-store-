@@ -6,6 +6,7 @@ import style from "../assets/style";
 import ProductInCart from "../components/ProductInCart";
 import { roundToTwoDecimalPlaces } from "../utils/functions";
 import PromoCode from "../components/PromoCode";
+import { cuponsArray } from "../constants";
 
 interface Product {
   _id: number;
@@ -21,34 +22,9 @@ function Cart() {
   const { cartItems } = useShoppingCart();
   const [data, setData] = useState<Product[]>([]);
   const [activeCode, setActiveCode] = useState("");
-  const [cupons, setCupons] = useState<Cupon[]>([
-    {
-      cuponName: "SUMMER23",
-      discount: 0.2,
-    },
-    {
-      cuponName: "FALL23",
-      discount: 0.15,
-    },
-    {
-      cuponName: "WINTER25",
-      discount: 0.25,
-    },
-    {
-      cuponName: "SPRING24",
-      discount: 0.1,
-    },
-  ]);
+  const [cupons, setCupons] = useState<Cupon[]>(cuponsArray);
 
-  /*  const totalPrice = cartItems.reduce((total: number, cartItem) => {
-    const item = data.find((i) => i._id === cartItem.id);
-    return roundToTwoDecimalPlaces(
-      total +
-        (item?.price - (item?.price * item?.discount) / 100 || 0) *
-          cartItem.quantity
-    );
-  }, 0);
- */
+  console.log(cartItems);
 
   const totalPrice = cartItems.reduce((total: number, cartItem) => {
     const item = data.find((i) => i._id === cartItem.id);

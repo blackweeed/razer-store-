@@ -1,29 +1,7 @@
+import { generateFormattedDates } from "../utils/functions";
+
 function Delivery() {
-  const options = { month: "short", day: "2-digit" };
-  const dates = [];
-
-  // dzisiaj
-  dates.push(new Date());
-
-  // dzisiaj + 2 dni
-  const twoDaysLater = new Date();
-  twoDaysLater.setDate(twoDaysLater.getDate() + 2);
-  dates.push(twoDaysLater);
-
-  // dzisiaj + 4 dni
-  const fourDaysLater = new Date();
-  fourDaysLater.setDate(fourDaysLater.getDate() + 6);
-  dates.push(fourDaysLater);
-
-  // dzisiaj + 6 dni
-  const sixDaysLater = new Date();
-  sixDaysLater.setDate(sixDaysLater.getDate() + 8);
-  dates.push(sixDaysLater);
-
-  // formatowanie dat
-  const formattedDates = dates.map((date) =>
-    date.toLocaleString("en-US", options)
-  );
+  const formattedDates = generateFormattedDates();
 
   return (
     <div className="flex items-start gap-2">

@@ -95,22 +95,21 @@ select {
   padding: 0 0.2em;
 }
 
-.elo {
+.cart-icon {
   display: inline-flex;
   gap: 16px;
   vertical-align: middle;
 }
-.elo::before {
+.cart-icon::before {
   background-position: 50%;
   background-repeat: no-repeat;
   content: " ";
   display: inline-block;
   background-size: 26px auto;
-  /* background-size: 18px auto; */
   height: 26px;
   width: 26px;
 }
-.elo1::before {
+.cart-order::before {
   background-position: 50%;
   background-repeat: no-repeat;
   content: " ";

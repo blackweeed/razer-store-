@@ -32,7 +32,7 @@ function Product() {
       <div className="lg:w-[30%] ">
         <div className="px-[1.3rem] mt-8 ">
           <h2 className="text-[1.475rem] lg:text-2xl text-[color:var(--cx-color-primary)]">
-            {data.name} {/* {data.color && `- ${data.color}}`} */}
+            {data.name}
           </h2>
           <h3 className="text-[.875rem] lg:text-base max-w-[90%] mb-2 lg:mb-3 lg:mt-0.5">
             {data.description}

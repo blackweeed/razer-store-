@@ -12,8 +12,6 @@ function Navbar() {
   const [query, setQuery] = useState("");
   const { cartQuantity } = useShoppingCart();
 
-  console.log(query);
-
   const navigate = useNavigate();
 
   async function handleSearch(event: React.FormEvent<HTMLFormElement>) {
@@ -101,9 +99,7 @@ function Navbar() {
           </svg>
         )}
       </span>
-      <div /* className="absolute inset-0  w-full  flex items-center justify-center z-30" */
-        className="order-0"
-      >
+      <div className="order-0">
         <Link to="/">
           <img
             src={logo}
@@ -120,7 +116,6 @@ function Navbar() {
         {toggleSearchBar ? null : (
           <svg
             onClick={() => setToggleSearchBar(true)}
-            // onClick={() => setToggleMenu(true)}
             className="h-6 w-6 text-gray-400 cursor-pointer hidden lg:block"
             xmlns="http://www.w3.org/2000/svg"
             viewBox="0 0 20 20"

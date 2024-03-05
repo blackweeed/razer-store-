@@ -3,25 +3,17 @@ import { Categories, ProductView, Newsletter } from "../components";
 import { Product } from "../assets/types/Product";
 import axios from "axios";
 import HomePageProductViev from "../components/HomePageProductViev";
+import { categoryDescription } from "../constants";
 
-type Props = {
+type HomePageProps = {
   text: string;
 };
 
-const HomePage = ({ text }: Props) => {
+const HomePage = ({ text }: HomePageProps) => {
   const [data, setData] = useState<Product[]>([]);
   const [toggleNewsletter, setToggleNewsletter] = useState(false);
   const lineArray = data.map((item) => item.line);
   const uniqueLineArr = [...new Set(lineArray)];
-
-  const categoryDescription: Record<string, string> = {
-    keyboards: "FULL-SIZED, TENKEYLESS, AND 60% KEYBOARDS",
-    mice: "HIGH-PERFORMANCE WIRED AND WIRELESS MICE MADE FOR EVERY GAMER'S HAND",
-    audio:
-      "EXPLORE RAZER HEADSETS, WIRELESS HEADPHONES, EARPHONES FOR GAMING & BROADCASTING",
-    chairs:
-      "AWARD-WINNING ERGONOMICS AND COMFORT FOR COUNTLESS HOURS OF GAMING",
-  };
 
   useEffect(() => {
     const timeout = setTimeout(() => {
@@ -34,7 +26,6 @@ const HomePage = ({ text }: Props) => {
   useEffect(() => {
     const fetchData = async () => {
       const result = await axios(`${import.meta.env.VITE_API_URL}/${text}`);
-      // const result = await axios(`https://razer-store.cytr.us/${text}`);
       setData(result.data);
     };
     fetchData();

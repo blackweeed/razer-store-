@@ -3,7 +3,7 @@ import { FiChevronDown } from "react-icons/fi";
 import { useShoppingCart } from "../context/ShoppingCartContext";
 import { Product } from "../assets/types/Product";
 import axios from "axios";
-import { roundTo99, roundToTwoDecimalPlaces } from "../utils/functions";
+import { roundToTwoDecimalPlaces } from "../utils/functions";
 
 type CartItemProps = {
   id: number;
@@ -15,7 +15,7 @@ function ProductInCart({ id, quantity }: CartItemProps) {
 
   useEffect(() => {
     const fetchData = async () => {
-      const result = await axios(`http://127.0.0.1:4000/getData`);
+      const result = await axios(`${import.meta.env.VITE_API_URL}/getData`);
       setData(result.data);
     };
     fetchData();
